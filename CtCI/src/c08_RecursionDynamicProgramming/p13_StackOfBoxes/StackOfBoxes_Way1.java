@@ -23,7 +23,7 @@ public class StackOfBoxes_Way1 {
 			maxHeight = Math.max(maxHeight, height);
 		}
 		
-		return 0;
+		return maxHeight;
 	}
 
 	private static int createStack(ArrayList<Box> boxes, int bottomIndex) {
