@@ -40,13 +40,15 @@ public class _1003_01_SearchInRotatedArray {
 			else {
 				return search(a, left, mid -1, x);//search left
 			}
+			
 		}
 		else if( a[left] == a[mid]) {//left or irght half is all repeats
 			if(a[mid] != a[right]) {//if right is different, search it
 				return search(a, mid +1, right, x);//search right
 			}
 			else {
-				int result = search(a, left, mid -1, x);//search left
+				int result = search(a,
+						left, mid -1, x);//search left
 				if(result == -1) {
 					return search(a, mid +1, right,x);//search right
 				}
