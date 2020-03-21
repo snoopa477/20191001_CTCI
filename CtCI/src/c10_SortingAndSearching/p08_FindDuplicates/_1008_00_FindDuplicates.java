@@ -1,10 +1,10 @@
-package c10_SortingAndSearching.p10_FindDuplicates;
+package c10_SortingAndSearching.p08_FindDuplicates;
 
 //import java.util.BitSet;
 
 import static java.lang.System.out;
 
-public class _1010_00_FindDuplicates {
+public class _1008_00_FindDuplicates {
 
 	public static void checkDuplicates(int[] array) {
 		
