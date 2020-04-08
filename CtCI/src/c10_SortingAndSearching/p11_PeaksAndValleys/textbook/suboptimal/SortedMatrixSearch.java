@@ -6,7 +6,7 @@ import util.MyArrays;
 
 public class SortedMatrixSearch {
 
-	public void sortValleyPeak(int[] array) {
+	public void PeaksAndValleys(int[] array) {
 		
 		Arrays.sort( array );
 		for( int i = 1; i < array.length; i +=2) {

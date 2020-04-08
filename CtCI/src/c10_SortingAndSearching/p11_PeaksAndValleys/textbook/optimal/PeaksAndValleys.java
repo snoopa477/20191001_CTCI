@@ -3,10 +3,10 @@ package c10_SortingAndSearching.p11_PeaksAndValleys.textbook.optimal;
 
 import util.MyArrays;
 
-public class SortedMatrixSearch {
+public class PeaksAndValleys {
 
 	public void sortValleyPeak(int[] array) {
-		for ( int i = 1; i < array.length; i += 2) {
+		for ( int i = 0; i < array.length; i += 2) {
 			
 			int biggestIndex = maxIndex(array, i - 1, i , i + 1);
 			if ( i != biggestIndex ) {

@@ -14,7 +14,7 @@ public class Test {
 			int[] input = { 5, 3, 1, 2, 3};
 			MyArrays.print(input);
 			SortedMatrixSearch sms = new SortedMatrixSearch();
-			sms.sortValleyPeak(input);
+			sms.PeaksAndValleys(input);
 			MyArrays.print(input);
 		}
 		
