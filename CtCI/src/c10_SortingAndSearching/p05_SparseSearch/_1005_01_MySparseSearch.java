@@ -1,4 +1,5 @@
-package c10_SortingAndSearching.p05_SparseSearch;import jdk.vm.ci.sparc.SPARC;
+package c10_SortingAndSearching.p05_SparseSearch;
+
 
 //20200218(Tue
 public class _1005_01_MySparseSearch {

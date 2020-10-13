@@ -17,4 +17,15 @@ public class MyArrays {
 		out.println();
 	}
 	
+	public static String toString(int[] array) {
+		
+		StringBuffer sb = new StringBuffer();  
+		
+		for(int i = 0; i < array.length; i++) {
+			sb.append(array[i]);
+			sb.append(" ");
+		}
+		return sb.toString();
+	}
+	
 }

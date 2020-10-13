@@ -2,7 +2,9 @@ package c10_SortingAndSearching.p11_PeaksAndValleys.mine.optimal;
 //import static java.lang.System.out;
 
 import util.MyArrays;
-public class PeaksAndValleys {
+public class PeaksAndValleys
+
+{
 
 	public void sortAsPeaksAndValleys(int[] array) {
 		

@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import util.MyArrays;
 
-public class SortedMatrixSearch {
+public class PeaksAndValleys {
 
 	public void PeaksAndValleys(int[] array) {
 		
