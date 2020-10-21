@@ -25,6 +25,20 @@ public class Test_0805 {
 			out.println(RecursiveMultiply_03.minProduct( a , b ));
 		}
 		
+		{
+			out.println("\ncase 4: My_RecursiveMultiply_02_DP");
+			int a = 3;
+			int b = 5;
+			out.println(My_RecursiveMultiply_02_DP.multiply(a, b));
+		}
+		
+		{
+			out.println("\ncase 5: My_RecursiveMultiply_03_DP");
+			int a = 3;
+			int b = 5;
+			out.println(My_RecursiveMultiply_03_DP.multiply(a, b));
+		}
+		
 	}
 
 }
