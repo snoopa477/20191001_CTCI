@@ -40,7 +40,6 @@ public class TowerOfHanoi {
 			moveTopTo(destination);
 			buffer.moveDisks(n-1, destination, this);
 			
-			
 		}
 	}
 	
