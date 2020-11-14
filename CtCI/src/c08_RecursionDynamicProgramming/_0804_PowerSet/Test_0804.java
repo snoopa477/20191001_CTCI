@@ -36,6 +36,22 @@ public class Test_0804 {
 			
 		}
 		
+		{
+			out.println("\ncase 5: MyPowerSet_Recursion_02");
+			ArrayList<ArrayList<String>> sets = My_PowerSet_01_Recursion_02.getAllSubSets(getSet_String());
+			printSets_String(sets);
+			
+		}
+		
+		{
+			out.println("\ncase 6: MyPowerSet_Combinatorics_02");
+			ArrayList<ArrayList<String>> sets = My_PowerSet_02_Combinatorics_02.getAllSubSets(getSet_String());
+			printSets_String(sets);
+			
+		}
+		
+		
+		
 		out.println("end");
 		
 		

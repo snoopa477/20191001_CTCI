@@ -1,5 +1,5 @@
 package c08_RecursionDynamicProgramming._0801_TripleStep;
-import static java.lang.System.out;
+//import static java.lang.System.out;
 public class My_TripleStep_02_DynamicProgramming {
 	
 		public static int waysToReachPosition(int position) {

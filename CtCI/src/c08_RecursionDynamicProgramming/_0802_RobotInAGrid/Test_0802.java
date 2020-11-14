@@ -60,10 +60,20 @@ public class Test_0802 {
 		}
 		
 		{
-			out.println("\ncase 6: my solution, all path with DP");
+			out.println("\ncase 6: my solution, all paths with DP");
 			
 			boolean[][] map = getMap_v2();
 			ArrayList<ArrayList<Point>> resultPahts = My_RobotInAGrid_02A_AllPaths_DP.getAllPaths(map);
+			printPaths(resultPahts);
+			out.println("paths size is " + resultPahts.size());
+			
+		}
+		
+		{
+			out.println("\ncase 7: my solution, all paths with DP");
+			
+			boolean[][] map = getMap_v2();
+			ArrayList<ArrayList<Point>> resultPahts = My_RobotInAGrid_02A_AllPaths_DP_02.getAllPaths(map);
 			printPaths(resultPahts);
 			out.println("paths size is " + resultPahts.size());
 			

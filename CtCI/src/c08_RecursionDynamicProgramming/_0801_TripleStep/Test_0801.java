@@ -10,6 +10,8 @@ public class Test_0801 {
 		out.println(TripleStep_01_NoDynamicProgramming.countWays(10));
 		out.println(TripleStep_02_DynamicProgramming.countWays(10));
 		
+		out.println(My_TripleStep_02_DynamicProgramming_02.waysToReachStep(10));
+		
 	}
 
 }

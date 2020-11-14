@@ -43,8 +43,8 @@ public class My_TowerOfHanoi_2 {
 		
 	}
 	
-	
-	public void moveTower(int numDisks, Stack<Integer> srcTower,  Stack<Integer> destTower,  Stack<Integer> bufferTower) {
+	//backbone
+	private void moveTower(int numDisks, Stack<Integer> srcTower,  Stack<Integer> destTower,  Stack<Integer> bufferTower) {
 		
 		if(numDisks == 0) {
 			return;
@@ -56,7 +56,7 @@ public class My_TowerOfHanoi_2 {
 		
 	}
 
-
+	//backbone
 	private void moveDisk(int numDisks, Stack<Integer> srcTower, Stack<Integer> destTower) {
 		
 		int disk = srcTower.pop();

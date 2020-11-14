@@ -39,6 +39,15 @@ public class Test_0805 {
 			out.println(My_RecursiveMultiply_03_DP.multiply(a, b));
 		}
 		
+		{
+			out.println("\ncase 6: My_RecursiveMultiply_03_DP_02");
+			int a = 3;
+			int b = 5;
+			out.println(My_RecursiveMultiply_03_DP_02.multiply(a, b));
+			
+			out.println(My_RecursiveMultiply_03_DP_02.multiply(9, 7));
+		}
+		
 	}
 
 }

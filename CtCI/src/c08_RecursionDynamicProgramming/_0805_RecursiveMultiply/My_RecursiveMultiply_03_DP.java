@@ -3,7 +3,7 @@ package c08_RecursionDynamicProgramming._0805_RecursiveMultiply;
 
 import java.util.Arrays;
 public class My_RecursiveMultiply_03_DP {
-public static int multiply(int a, int b) {
+	public static int multiply(int a, int b) {
 		
 		int smallerSide = a < b? a : b;
 		int biggerSide = a < b? b : a;

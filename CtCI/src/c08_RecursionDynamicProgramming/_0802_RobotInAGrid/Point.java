@@ -16,13 +16,13 @@ public class Point {
 	
 	@Override
 	public String toString() {
-		String str = "{row: " + row + ", col: " + col +"}";
+		String str = "{" + row + ", " + col +"}";
 		return str;
 	}
 	
 	//MISTAKE
 	//without overriding hashCode(), equals(), 
-	//HashSet would treat different object same values as different things
+	//HashSet would treat different object same values as different things; so is HashMap
 	@Override
 	public int hashCode() {
 		
@@ -40,9 +40,10 @@ public class Point {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        
         //have to do the cast, otherwise you cannot compare field by field
         final Point other = (Point) obj;
+        
+        
         if (!Objects.equals(this.row, other.row)) {
             return false;
         }

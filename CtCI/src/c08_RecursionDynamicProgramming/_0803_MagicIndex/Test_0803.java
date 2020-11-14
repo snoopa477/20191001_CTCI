@@ -49,6 +49,23 @@ public abstract class Test_0803 {
 			
 		}
 		
+		{
+			out.println("\ncase 6: my non-distinct with answer");
+			int[] magicIndeces = magicIndexNonDistinct();
+			int[] array = nonMagiIndex();
+			out.println( My_MagicIndex_01_Distinct_02.findMagicIndex(magicIndeces) );
+			out.println( My_MagicIndex_01_Distinct_02.findMagicIndex(array));
+			
+		}
+		
+		{
+			out.println("\ncase 7: my non-distinct with answer");
+			int[] magicIndeces = magicIndexNonDistinct();
+			int[] array = nonMagiIndex();
+			out.println( My_MagicIndex_02_NonDistinct_02.findMagicIndex(magicIndeces) );
+			out.println( My_MagicIndex_02_NonDistinct_02.findMagicIndex(array));
+			
+		}
 		
 		
 	}
