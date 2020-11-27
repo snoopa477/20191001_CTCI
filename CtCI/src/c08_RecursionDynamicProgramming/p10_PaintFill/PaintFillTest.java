@@ -13,15 +13,19 @@ public class PaintFillTest {
 				{Color.White, Color.Green, Color.White, Color.White, Color.Green},
 				};
 		
+		out.println("textbook answer: ");
+		
 		printScreen(screen);
 		PaintFill.paintFill(screen, 1, 1, Color.Red);
 		printScreen(screen);
 		
+		
+		out.println("my way 1");
 		printScreen(screen);
 		MyPaintFill.paintFill(screen, 1, 1, Color.Black);
 		printScreen(screen);
 		
-		
+		out.println("my way02");
 		
 	}
 	

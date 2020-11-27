@@ -1,5 +1,5 @@
 package c08_RecursionDynamicProgramming._0807_PermutationWithoutDups;
-import static java.lang.System.out;
+//import static java.lang.System.out;
 
 import java.util.ArrayList;
 public class PermutationWithoutDups_way02 {

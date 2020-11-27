@@ -16,6 +16,18 @@ public class Test_0807 {
 			out.println( PermutationWithoutDups_way02.getPerms(str) );
 		}
 		
+		{
+			out.println("textbook way my 1: ");
+			String str = getString();
+			out.println( My_PermutationWithoutDups_way01.getPerms(str) );
+		}
+		
+		{
+			out.println("textbook way my 2: ");
+			String str = getString();
+			out.println( My_PermutationWithoutDups_way02.getPerms(str) );
+		}
+		
 	}
 	
 	static String getString() {
