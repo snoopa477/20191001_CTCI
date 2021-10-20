@@ -1,4 +1,4 @@
-package c10_SortingAndSearching._10_RankFromStream.textbook;
+package c10_SortingAndSearching.p10_RankFromStream.textbook;
 
 public class RankNode {
 

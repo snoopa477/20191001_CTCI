@@ -1,5 +1,8 @@
 package c08_RecursionDynamicProgramming.p14_BooleanEvaluation;
 
+import static java.lang.System.out;
+
+import java.util.HashMap;
 import java.util.Map;
 
 //21091124(Sun
@@ -70,5 +73,7 @@ public class MyBooleanEvaluation_Way2 {
 		return str.equals("1")? true : false;
 		
 	}
+	
+	
 	
 }

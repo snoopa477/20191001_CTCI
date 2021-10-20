@@ -7,8 +7,8 @@ import static java.lang.System.out;
  * set 1: x | 1
  * set 0: x & 0
  * 
- * get x: x & 1
- * 		  x | 0 
+ * get x: x | 0
+ * 		  x & 1 
  * 
  * 
 */
@@ -25,9 +25,10 @@ public class NumToExist {
 		numToExist = new int[size];
 	}
 	
-	// 0010
+	// xxYx              
 	//&
 	// 0010
+	// 00Y0
 	public boolean isExist(int num) {
 		
 		if(num >= maxNum) {
@@ -40,10 +41,10 @@ public class NumToExist {
 		return (numToExist[wordIndex] & ( 1 << offsetIndex ) ) != 0;
 	}
 	
-	// 0000
+	// xxxx
 	//|
 	// 0010
-	
+	// xx1x
 	public void set(int num) {
 		
 		if(num >= maxNum) {
@@ -57,10 +58,10 @@ public class NumToExist {
 		numToExist[wordIndex] |= 1 << offsetIndex;
 	}
 	
-	// 0011
+	// xxxx
 	//&
 	// 1101
-	
+	// xx0x
 	public void erase(int num) {
 		
 		if(num >= maxNum) {

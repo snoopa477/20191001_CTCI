@@ -26,6 +26,9 @@ public class PaintFillTest {
 		printScreen(screen);
 		
 		out.println("my way02");
+		printScreen(screen);
+		My_PaintFill_02.paintFill(Color.Green, screen, 1, 1);
+		printScreen(screen);
 		
 	}
 	

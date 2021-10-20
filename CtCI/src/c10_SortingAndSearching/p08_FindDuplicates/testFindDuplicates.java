@@ -11,6 +11,10 @@ public class testFindDuplicates {
 			_1008_00_FindDuplicates.checkDuplicates(input);
 			out.println("- - - - - - - - - - - - - - - - - - - - -");
 			_1008_01_MyFindDuplicates.findDuplicate(input);
+			
+			out.println("MyFindDuplicates_freq02: ");
+			MyFindDuplicates_freq02.findDuplicates(input, 32000);
+			
 		}
 		
 		

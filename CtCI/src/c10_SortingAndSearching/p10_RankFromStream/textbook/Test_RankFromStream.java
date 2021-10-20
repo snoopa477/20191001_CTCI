@@ -1,4 +1,4 @@
-package c10_SortingAndSearching._10_RankFromStream.textbook;
+package c10_SortingAndSearching.p10_RankFromStream.textbook;
 
 import static java.lang.System.out;
 
@@ -19,6 +19,7 @@ public class Test_RankFromStream {
 				out.println( elt + " : " + rfs.getRankOfNumber(elt));
 			}
 			out.println( 99 + " : " + rfs.getRankOfNumber(99));
+			out.println( 12 + " : " + rfs.getRankOfNumber(12)); 
 		}
 		
 	}

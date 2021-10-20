@@ -17,11 +17,28 @@ public class TestEightQueens {
 		}
 		
 		{
+			out.println("MyEightQueens");
+			
 			ArrayList<Integer[]> result = new ArrayList<Integer[]>();
 			MyEightQueens.waysToPlaceQueens(0, new Integer[8], result);
 			out.println("the result is " + result.size());
 
 			printChessBoards(result);
+		}
+		
+		{
+			out.println("MyEightQueens_way02_freq2_recursionType2");
+			ArrayList<Integer[]> results = MyEightQueens_way02_freq2_recursionType2.waysToPutQueens();
+			out.println("the result is " + results.size());
+
+			printChessBoards(results);
+		}
+		
+		{
+			out.println("MyEightQueens_way01_recursionType1");
+			
+			out.println("the result is " + MyEightQueens_way01_recursionType1.waysToPutQueens());
+
 		}
 		
 	}

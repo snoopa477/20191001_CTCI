@@ -24,6 +24,18 @@ public class TestSortedMerge {
 			printArr(A, maxALen);
 		}
 		
+		{
+			out.println("MySortedMerge_freq02: ");
+			int maxALen = rand.nextInt(10) + 10;
+			int arrALen = rand.nextInt(maxALen);
+			int arrBLen = maxALen - arrALen;
+			int[] A = new int[maxALen];
+			int[] B = new int[arrBLen];
+			getTwoSortedArrs(A, maxALen, arrALen, B, arrBLen);
+			MySortedMerge_freq02.mergeSrcToDestArray(A, B, arrALen, arrBLen);
+			printArr(A, maxALen);
+		}
+		
 	}
 	
 	

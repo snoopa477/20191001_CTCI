@@ -2,6 +2,9 @@ package c10_SortingAndSearching.e02_quickSort;
 
 import static java.lang.System.out;
 
+import c10_SortingAndSearching.e02_quickSort.practice.QuickSort_classic_01;
+import c10_SortingAndSearching.e02_quickSort.practice.QuickSort_textbook_freq01;
+
 public class TestQuickSort {
 
 	public static void main(String[] args) {
@@ -12,6 +15,7 @@ public class TestQuickSort {
 			   ,{3, 8, 2, 4, 6, 5, 7, 1 }
 			   ,{-5, 8, 7, -12, 0, 45, 89, -87}
 			   ,{-3, -2, 0, 2, 12, 32, 54, 99}
+			   ,{3, 2}
 		};
 		
 //		for(int[] input : inputs) {
@@ -42,11 +46,32 @@ public class TestQuickSort {
 //			printArray(input);
 //		}
 		
+//		for(int[] input : inputs) {
+//			out.println("-----------------------------");
+//			printArray(input);
+//			MyQuickSort_classicVersion.quickSort(input);
+//			printArray(input);
+//		}
+		
+//		for(int[] input : inputs) {
+//			out.println("-----------------------------");
+//			printArray(input);
+//			MyQuickSort_textbook_02_loose.quickSort(input);
+//			printArray(input);
+//		}
+		
+//		for(int[] input : inputs) {
+//		out.println("-----------------------------");
+//		printArray(input);
+//		QuickSort_classic_01.quickSort(input);
+//		printArray(input);
+//		
 		for(int[] input : inputs) {
 			out.println("-----------------------------");
 			printArray(input);
-			MyQuickSort_classicVersion.quickSort(input);
+			QuickSort_textbook_freq01.quickSort(input);
 			printArray(input);
+		
 		}
 	}
 	

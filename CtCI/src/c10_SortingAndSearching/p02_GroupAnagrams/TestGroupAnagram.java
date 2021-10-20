@@ -20,6 +20,16 @@ public class TestGroupAnagram {
 		Sort.sort(input);
 		printArr(input);
 		
+		
+		out.println("AnagramSorter");
+		
+		input= Arrays.copyOf(input_original, input_original.length);
+		printArr(input);
+		
+		input= Arrays.copyOf(input_original, input_original.length);
+		Sort.sort(input);
+		printArr(input);
+		
 		out.println("-----------------my part");
 		
 		input= Arrays.copyOf(input_original, input_original.length);
@@ -29,6 +39,26 @@ public class TestGroupAnagram {
 		input= Arrays.copyOf(input_original, input_original.length);
 		MySort.sort(input);
 		printArr(input);
+		
+		
+		out.println("MyAnagramComparator_freq02");
+		input= Arrays.copyOf(input_original, input_original.length);
+		Arrays.sort(input, new MyAnagramComparator_freq02());
+		printArr(input);
+		
+		input= Arrays.copyOf(input_original, input_original.length);
+		printArr(input);
+		
+		
+		out.println("MyAnagramSorter_freq02");
+		input= Arrays.copyOf(input_original, input_original.length);
+		input = MyAnagramSorter_freq02.sort(input);
+		printArr(input);
+		
+		input= Arrays.copyOf(input_original, input_original.length);
+		printArr(input);
+		
+		out.println("end");
 		
 		
 	}

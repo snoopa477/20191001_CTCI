@@ -15,6 +15,10 @@ public class testSparseSearch {
 		out.println(_1005_01_MySparseSearch.search(input, "ball"));
 		out.println(_1005_01_MySparseSearch.search(input, "dad"));
 		
+		out.println("_1005_MySparseSearch_freq02");
+		out.println(_1005_MySparseSearch_freq02.search(input, "ball"));
+		out.println(_1005_MySparseSearch_freq02.search(input, "dad"));
+		
 	}
 
 }

@@ -19,6 +19,12 @@ public class Coordinate implements Cloneable{
 		this.row = row;
 		this.col = col;
 	}
+	
+	public Coordinate( Coordinate coord ) {
+		super();
+		this.row = coord.row;
+		this.col = coord.col;
+	}
 
 	public boolean inbounds(int[][] matrix) {
 		
@@ -48,6 +54,11 @@ public class Coordinate implements Cloneable{
 		row = (min.row + max.row) / 2;
 		col = (min.col + max.col) / 2;
 		
+	}
+	
+	public void set(int row, int col) {
+		this.row = row;
+		this.col = col;
 	}
 	
 	@Override

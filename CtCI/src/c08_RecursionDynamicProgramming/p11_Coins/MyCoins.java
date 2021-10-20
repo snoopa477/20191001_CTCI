@@ -1,11 +1,11 @@
 package c08_RecursionDynamicProgramming.p11_Coins;
 
 //20190818(Sun)
-//±qÃÀ³NªºÆ[ÂI¨Ó¬Ý, JavaLanguage ÁÙ¬O¦³ªí²{ªº·¥­­; ¦³®É­Ô«Ü¦hnotationµLªkªí²{§Úªº·Qªk, ¥²¶·¨Ì¿àinference¤~¦æ
-//©ÎªÌ, ­n¬Ý
+//å¾žè—è¡“çš„è§€é»žä¾†çœ‹, JavaLanguage é‚„æ˜¯æœ‰è¡¨ç¾çš„æ¥µé™; æœ‰æ™‚å€™å¾ˆå¤šnotationç„¡æ³•è¡¨ç¾æˆ‘çš„æƒ³æ³•, å¿…é ˆä¾è³´inferenceæ‰è¡Œ
+//æˆ–è€…, è¦çœ‹
 
-//½Ò¥»©Ò´£¨Ñªºµª®×, ¬O³Ì¥¿½Tªº±¶®|; µM¦Ó, ¤Hªº«ä¸ô¥¼¥²¨º»ò¥©¤@¦¸¨ì¹F±¶®|;
-//¦]¦¹, ¹J¨ì¿ù»~®É­n¯à­×¥¿
+//èª²æœ¬æ‰€æä¾›çš„ç­”æ¡ˆ, æ˜¯æœ€æ­£ç¢ºçš„æ·å¾‘; ç„¶è€Œ, äººçš„æ€è·¯æœªå¿…é‚£éº¼å·§ä¸€æ¬¡åˆ°é”æ·å¾‘;
+//å› æ­¤, é‡åˆ°éŒ¯èª¤æ™‚è¦èƒ½ä¿®æ­£
 public class MyCoins {
 	
 	public static int waysToMakeChange(int n) {
@@ -15,8 +15,8 @@ public class MyCoins {
 	}
 	
 	
-	//©Ò¦³case¦@¥Î¤@­Ó¶°Åé·§©À: ways to make change
-	//µM¦Ó; ¤Å¿ù§â©Ò¦³case·í§@¬O©¼¦¹¤§¶¡¦³©ÒÃöÁp(­Y¦³, ¤]¥²¶·­nÃÒ©ú)
+	//æ‰€æœ‰caseå…±ç”¨ä¸€å€‹é›†é«”æ¦‚å¿µ: ways to make change
+	//ç„¶è€Œ; å‹¿éŒ¯æŠŠæ‰€æœ‰caseç•¶ä½œæ˜¯å½¼æ­¤ä¹‹é–“æœ‰æ‰€é—œè¯(è‹¥æœ‰, ä¹Ÿå¿…é ˆè¦è­‰æ˜Ž)
 	private static int waysToMakeChange(int amount, int[] coinValues
 			, int coinIndex, int[][] computedResults) {
 		
@@ -24,8 +24,8 @@ public class MyCoins {
 			return computedResults[amount][coinIndex];
 		}
 		
-		//¤§©Ò¥H¥i¥H³o»ò¼g: ·í³Ì«á¤@­Óindex mapping ¨ìªºvalue¬°1, ¥B©Ò¦³value¬°¾ã¼Æ¤~¦æ±o³q
-		//¦]¬°, ©Ò¦³¾ã¼Æ³£¥i¥H³Q1©Òºc¦¨
+		//ä¹‹æ‰€ä»¥å¯ä»¥é€™éº¼å¯«: ç•¶æœ€å¾Œä¸€å€‹index mapping åˆ°çš„valueç‚º1, ä¸”æ‰€æœ‰valueç‚ºæ•´æ•¸æ‰è¡Œå¾—é€š
+		//å› ç‚º, æ‰€æœ‰æ•´æ•¸éƒ½å¯ä»¥è¢«1æ‰€æ§‹æˆ
 		if(coinIndex >= coinValues.length -1)
 			return 1;
 		

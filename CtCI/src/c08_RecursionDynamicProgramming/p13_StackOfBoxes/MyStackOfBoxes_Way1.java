@@ -13,7 +13,7 @@ import java.util.List;
 public class MyStackOfBoxes_Way1 {
 
 	
-	static int getMaxStackHeight(List<Box> boxes) {
+	public static int getMaxStackHeight(List<Box> boxes) {
 		
 		int maxHeight =0;
 		for(int bottomIndex = 0; bottomIndex < boxes.size(); bottomIndex++) {

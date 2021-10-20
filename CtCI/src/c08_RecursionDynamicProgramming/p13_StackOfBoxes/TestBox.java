@@ -10,7 +10,7 @@ public class TestBox {
 
 	public static void main(String[] args) {
 		
-		ArrayList<Box> boxes = generateBoxesRandomly(3, 20, 20, 20);
+		ArrayList<Box> boxes = generateBoxesRandomly(4, 20, 20, 20);
 		showBoxes(boxes);
 		
 		
@@ -19,6 +19,10 @@ public class TestBox {
 		out.println("StackOfBoxes_Way1_1_printEachStep " + StackOfBoxes_Way1_1_printEachStep.createStack(boxes));
 		out.println("StackOfBoxes_Way2 " + StackOfBoxes_Way2.getMaxHeightOfStack(boxes));
 		out.println("MyStackOfBoxes_Way2 " + MyStackOfBoxes_Way2.getMaxStackHeight(boxes));
+		
+		out.println("MyStackOfBoxes_Way1_freq02 " + MyStackOfBoxes_Way1_freq02.getMaxHeight(boxes)); 
+		
+		out.println("MyStackOfBoxes_Way2_freq02 " + MyStackOfBoxes_Way2_freq02.maxHeight(boxes)); 
 	}
 	
 	private static ArrayList<Box> generateBoxesRandomly(int num,int widthBound

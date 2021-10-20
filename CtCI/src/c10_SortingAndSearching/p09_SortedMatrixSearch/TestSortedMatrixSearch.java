@@ -24,6 +24,19 @@ public class TestSortedMatrixSearch {
 					+ _1009_01_SortedMatrixSearch.findElement(sortedMatrix,elem));
 		}
 		
+		out.println("- - - - - - - -MySortedMatrixSearch_freq02");
+		for(int elem: numsToSearch) {
+			out.println(elem + " can be found? " 
+					+ MySortedMatrixSearch_way_02_freq02.searchElement(sortedMatrix,elem));
+		}
+		
+		out.println("- - - - - - - -MySortedMatrixSearch_way_01_freq02");
+//		MySortedMatrixSearch_way_01_freq02
+		for(int elem: numsToSearch) {
+			out.println(elem + " can be found? " 
+					+ MySortedMatrixSearch_way_01_freq02.findElement(sortedMatrix,elem));
+		}
+		
 	}
 
 }

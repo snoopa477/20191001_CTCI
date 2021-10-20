@@ -29,6 +29,9 @@ public class MyQuickSort_classicVersion {
 	private static int partition(int[] arr, int left_bound_idx, int right_bound_idx) {
 		
 		int temp_pivot = arr[right_bound_idx];
+		
+		//wrong!
+//		int temp_pivot = arr[left_bound_idx];
 		//inclusive
 		int small_sectoin_right_bound = left_bound_idx - 1;
 		for(int current_idx = left_bound_idx; current_idx <= right_bound_idx -1; current_idx++) {
