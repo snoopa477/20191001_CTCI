@@ -35,6 +35,11 @@ public class My_RobotInAGrid_01A_OnePath_DP {
 		
 		boolean result = isLeftValid || isRightValid;
 		
+		//This should be added
+		if( result == false ) {
+			visitedInValidPoints.add(point);
+		}
+		
 		return result;
 	}
 	
