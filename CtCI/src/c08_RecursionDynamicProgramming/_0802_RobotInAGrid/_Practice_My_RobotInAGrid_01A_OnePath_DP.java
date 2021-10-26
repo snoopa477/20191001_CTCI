@@ -71,12 +71,10 @@ public class _Practice_My_RobotInAGrid_01A_OnePath_DP {
 	
 	//PURPOSE: if is valid, add point to result path, in postOrder way
 	/*REPLACED
-	private static ArrayList<Point> getOnePath(Point point, boolean maze[][], ArrayList<Point> resultPath
-			, HashSet<Point> visitedInvalidPoints ){
+	private static ArrayList<Point> getOnePath(Point point, boolean maze[][], ArrayList<Point> resultPath, HashSet<Point> visitedInvalidPoints ){
 	*/
 	//THINK_FURTHER result is in return statement v.s. result is in argument
-	private static void getOnePath(Point point, boolean maze[][], ArrayList<Point> resultPath
-					, HashSet<Point> visitedInvalidPoints ){
+	private static void getOnePath(Point point, boolean maze[][], ArrayList<Point> resultPath, HashSet<Point> visitedInvalidPoints ){
 		
 		
 		if(isValid(point, maze, visitedInvalidPoints) == false ) {

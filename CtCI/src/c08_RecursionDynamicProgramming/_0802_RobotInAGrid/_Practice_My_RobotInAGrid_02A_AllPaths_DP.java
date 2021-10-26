@@ -5,10 +5,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 public class _Practice_My_RobotInAGrid_02A_AllPaths_DP {
 
-	private static boolean isDebugOn = true;
+	private static boolean isDebugOn = false;
 	/*PURPOSE
-	 * Compared to _Practice_My_RobotInAGrid_01A_OnePath_DP, the reason we use HashMap instead of HasSet
-	 * is valid point is visited more than one time
+	 * Compared to _Practice_My_RobotInAGrid_01A_OnePath_DP, the reason we use HashMap instead of HasSet is valid point is visited more than one time
 	 */
 	private static boolean isValid(boolean[][] maze, Point point, HashMap<Point, Boolean> pointToValidity) {
 		
@@ -17,8 +16,7 @@ public class _Practice_My_RobotInAGrid_02A_AllPaths_DP {
 			return pointToValidity.get(point);
 		}
 		
-		/*THINK_FURTHER: base case and general case is like filter; however, only one of them is activated 
-		at one time. It's not so direct by reading the code, since we don't specify if, and else if
+		/*THINK_FURTHER: base case and general case is like filter; however, only one of them is activated at one time. It's not so direct by reading the code, since we don't specify if, and else if
 		*/
 		
 		int row = point.row;
@@ -35,8 +33,7 @@ public class _Practice_My_RobotInAGrid_02A_AllPaths_DP {
 		}
 		
 		/*DETAIL: 
-		this section must be sure there's no such case that row < 0 nor col < 0, otherwise indexing
-		array would be wrong
+		this section must be sure there's no such case that row < 0 nor col < 0, otherwise indexing array would be wrong
 		*/
 		//PURPOSE: base case
 		if( row == 0 && col == 0 && maze[row][col] == true ) {
@@ -50,8 +47,7 @@ public class _Practice_My_RobotInAGrid_02A_AllPaths_DP {
 		boolean result = isValid_fromUpPoint || isValid_fromLeftPoint; 
 		
 		//PURPOSE: we now compute the answer, put it in map for potential later use
-		/*DETAIL: based on previous if statement pointToValidity.containsKey(point), reaching here
-		 means that we're first time here
+		/*DETAIL: based on previous if statement pointToValidity.containsKey(point), reaching here means that we're first time here
 		 */
 		pointToValidity.put(point, result);
 //		if(isDebugOn) out.print( point + (result? " valid " : " invalid " ) + "; ");
@@ -61,22 +57,18 @@ public class _Practice_My_RobotInAGrid_02A_AllPaths_DP {
 	/*
 	 DETAIL
 	 look at the signature, even though we have so much parameters; we may only need some in this function,
-	 other would be used in other functions, called by this function.
+other would be used in other functions, called by this function.
 	 */
 	
 	/*
 	 PURPOSE
-	 add all paths from sub call getAllPaths, then add a new point, in post order
-	 then update the Map
+	 add all paths from sub call getAllPaths, then add a new point, in post order then update the Map
 	 * */
 	/*
 	 REPLACED
-	 * private static void getAllPaths( Point point, ArrayList<ArrayList<Point>> resultPaths
-			, boolean[][] maze, HashMap<Point, Boolean> pointToValidity) {
+	 * private static void getAllPaths( Point point, ArrayList<ArrayList<Point>> resultPaths, boolean[][] maze, HashMap<Point, Boolean> pointToValidity) {
 	*/
-	private static void updatePointToPaths( Point point
-			, boolean[][] maze, HashMap<Point, ArrayList<ArrayList<Point>>> pointToPaths
-			, HashMap<Point, Boolean> pointToValidity) {
+	private static void updatePointToPaths( Point point, boolean[][] maze, HashMap<Point, ArrayList<ArrayList<Point>>> pointToPaths, HashMap<Point, Boolean> pointToValidity) {
 		
 		//if(isDebugOn) out.print(point + " ");
 		
@@ -148,8 +140,7 @@ public class _Practice_My_RobotInAGrid_02A_AllPaths_DP {
 
 	
 
-	private static void deepClonePaths(ArrayList<ArrayList<Point>> paths_dest,
-			ArrayList<ArrayList<Point>> paths_source) {
+	private static void deepClonePaths(ArrayList<ArrayList<Point>> paths_dest, ArrayList<ArrayList<Point>> paths_source) {
 		
 		if( paths_dest == null || paths_source == null ) {
 			return ;
