@@ -29,7 +29,7 @@ public class _Practice_My_RobotInAGrid_02A_AllPaths_DP {
 		 */
 		if( row < 0 || col < 0 || maze[row][col] == false ) {
 //			if(isDebugOn) out.print( point + " invalid; ");
-			return false;
+			return false; 
 		}
 		
 		/*DETAIL: 

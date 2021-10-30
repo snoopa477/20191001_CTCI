@@ -79,7 +79,7 @@ public class _Practice_My_RobotInAGrid_01A_OnePath_DP {
 		
 		if(isValid(point, maze, visitedInvalidPoints) == false ) {
 			//THINK_FURTHER result is in return statement v.s. result is in argument
-			return ;
+			return ; 
 		}
 		
 		//PURPOSE now the point is ok, check the previous points that reach the point
