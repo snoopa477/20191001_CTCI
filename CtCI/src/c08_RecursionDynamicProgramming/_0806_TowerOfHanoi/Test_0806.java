@@ -1,6 +1,9 @@
 package c08_RecursionDynamicProgramming._0806_TowerOfHanoi;
 import static java.lang.System.out;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+
 import util.StackPrinter;
 import java.util.Stack;
 public class Test_0806 {
@@ -9,6 +12,10 @@ public class Test_0806 {
 	
 	public static void main(String[] args) {
 		
+		String[] chosenOptions = { "1", "4"};
+		HashSet<String> options = new HashSet<>( Arrays.asList(chosenOptions) );
+		
+		if(options.contains("1"))
 		{
 			out.println("case 1: textbook");
 			int numPlates = 5;
@@ -30,6 +37,7 @@ public class Test_0806 {
 		
 		}
 		
+		if(options.contains("2"))
 		{
 			out.println("\ncase 2: My_TowersOfHanoi");
 			int numPlates = 5;
@@ -46,6 +54,7 @@ public class Test_0806 {
 		
 		}
 		
+		if(options.contains("3"))
 		{
 			out.println("\ncase 3: My_TowersOfHano2");
 			int numPlates = 5;
@@ -61,6 +70,38 @@ public class Test_0806 {
 			printTowers(towersOfHanoi.getTowers());
 		
 		}
+		
+		
+		if(options.contains("4"))
+		{
+			out.println("\ncase 4: _Practice_TowerOfHanoi");
+			int numPlates = 5;
+			_Practice_TowerOfHanoi sourceTower = new _Practice_TowerOfHanoi(numPlates, "A");
+			_Practice_TowerOfHanoi bufferTower = new _Practice_TowerOfHanoi("B");
+			_Practice_TowerOfHanoi destTower = new _Practice_TowerOfHanoi("C");
+			
+			
+			out.println("before: ");
+			out.print("sourceTower: ");
+			sourceTower.printDisks();
+			out.print("bufferTower: ");
+			bufferTower.printDisks();
+			out.print("destTower: ");
+			destTower.printDisks();
+			
+			
+			sourceTower.moveDisksToTower(5, destTower, bufferTower);
+			
+			out.println("after: ");
+			out.print("sourceTower: ");
+			sourceTower.printDisks();
+			out.print("bufferTower: ");
+			bufferTower.printDisks();
+			out.print("destTower: ");
+			destTower.printDisks();
+		
+		}
+		
 		
 		out.println("end");
 		
