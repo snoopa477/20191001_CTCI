@@ -17,6 +17,15 @@ public class Test_subString {
 			out.println( "[" + str.substring(str.length()) + "]" );
 		}
 		
+		{
+			//OUTPUT throw new StringIndexOutOfBoundsException(
+			/*WRONG
+			 * 
+			String str ="";
+			out.println("str\\.substring(3): " + str.substring(3));
+			*/
+		}
+		
 	}
 
 }
