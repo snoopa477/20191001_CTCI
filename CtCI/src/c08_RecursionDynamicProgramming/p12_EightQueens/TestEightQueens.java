@@ -3,11 +3,17 @@ package c08_RecursionDynamicProgramming.p12_EightQueens;
 import static java.lang.System.out;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 
 public class TestEightQueens {
 
 	public static void main(String[] args) {
 		
+		String[] chosenOptions = { "3", "5", "6" };
+		HashSet<String> options = new HashSet<>( Arrays.asList(chosenOptions) );
+		
+		if(options.contains("1"))
 		{
 			ArrayList<Integer[]> result = new ArrayList<Integer[]>();
 			EightQueens.placeQueens(0, new Integer[8], result);
@@ -16,6 +22,7 @@ public class TestEightQueens {
 			//printChessBoards(result);
 		}
 		
+		if(options.contains("2"))
 		{
 			out.println("MyEightQueens");
 			
@@ -26,6 +33,7 @@ public class TestEightQueens {
 			printChessBoards(result);
 		}
 		
+		if(options.contains("3"))
 		{
 			out.println("MyEightQueens_way02_freq2_recursionType2");
 			ArrayList<Integer[]> results = MyEightQueens_way02_freq2_recursionType2.waysToPutQueens();
@@ -34,10 +42,30 @@ public class TestEightQueens {
 			printChessBoards(results);
 		}
 		
+		if(options.contains("4"))
 		{
 			out.println("MyEightQueens_way01_recursionType1");
 			
 			out.println("the result is " + MyEightQueens_way01_recursionType1.waysToPutQueens());
+
+		}
+		
+		if(options.contains("5"))
+		{
+			out.println("_Practice_EightQueens_way02_ways");
+			
+			ArrayList<Integer[]> results = _Practice_EightQueens_way02_ways.getWaysToPlaceQueens();
+			out.println("the result is " + results.size());
+
+			printChessBoards(results);
+
+		}
+		
+		if(options.contains("6"))
+		{
+			out.println("_Practice_EightQueens_way01_number");
+			
+			out.println("the result is " + _Practice_EightQueens_way01_number.getWaysToPlaceQueens());
 
 		}
 		
