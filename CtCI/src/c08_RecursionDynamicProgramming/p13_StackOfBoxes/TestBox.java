@@ -12,7 +12,7 @@ public class TestBox {
 
 	public static void main(String[] args) {
 		
-		String[] chosenOptions = { "1" , "8" };
+		String[] chosenOptions = { "1" , "4", "7", "8", "9", "10" };
 		HashSet<String> options = new HashSet<>( Arrays.asList(chosenOptions) );
 		
 		ArrayList<Box> boxes = generateBoxesRandomly(4, 20, 20, 20);
@@ -49,9 +49,24 @@ public class TestBox {
 		
 		if(options.contains("8"))
 		{
-			out.println("_Practice_StackOfBoxes_Way01 " + _Practice_StackOfBoxes_Way01.getMaxHeightOfStackOfBoxes(boxes));
-			showBoxes(boxes);
+			out.println("_Practice_StackOfBoxes_Way01_02 " + _Practice_StackOfBoxes_Way01_02.getMaxHeightOfStackOfBoxes(boxes));
+			
 		}
+		
+		if(options.contains("9"))
+		{
+			out.println("_Practice_StackOfBoxes_Way01_03 " + _Practice_StackOfBoxes_Way01_03.getMaxHeightOfStackOfBoxes(boxes));
+			
+		}
+		
+		if(options.contains("10"))
+		{
+			out.println("_Practice_StackOfBoxes_Way02 " + _Practice_StackOfBoxes_Way02.getMaxHeightOfStackOfBoxes(boxes));
+			
+		}
+		
+		out.println();
+		showBoxes(boxes);
 	}
 	
 	private static ArrayList<Box> generateBoxesRandomly(int num,int widthBound
