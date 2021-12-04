@@ -2,6 +2,9 @@ package c10_SortingAndSearching.e02_quickSort;
 
 import static java.lang.System.out;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 import c10_SortingAndSearching.e02_quickSort.practice.QuickSort_classic_01;
 import c10_SortingAndSearching.e02_quickSort.practice.QuickSort_textbook_freq01;
 
@@ -17,6 +20,9 @@ public class TestQuickSort {
 			   ,{-3, -2, 0, 2, 12, 32, 54, 99}
 			   ,{3, 2}
 		};
+
+		String[] chosenOptions = { "2"};
+		HashSet<String> options = new HashSet<>( Arrays.asList(chosenOptions) );
 		
 //		for(int[] input : inputs) {
 //			out.println("-----------------------------");
@@ -66,12 +72,25 @@ public class TestQuickSort {
 //		QuickSort_classic_01.quickSort(input);
 //		printArray(input);
 //		
-		for(int[] input : inputs) {
-			out.println("-----------------------------");
-			printArray(input);
-			QuickSort_textbook_freq01.quickSort(input);
-			printArray(input);
 		
+		if(options.contains("1")) {
+			for(int[] input : inputs) {
+				out.println("-----------------------------");
+				printArray(input);
+				QuickSort_textbook_freq01.quickSort(input);
+				printArray(input);
+			
+			}
+		}
+		
+		if(options.contains("2")) {
+			for(int[] input : inputs) {
+				out.println("-----------------------------_Practice_QuickSort_textbook");
+				printArray(input);
+				_Practice_QuickSort_textbook.sort(input);
+				printArray(input);
+			
+			}
 		}
 	}
 	
