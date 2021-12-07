@@ -21,77 +21,57 @@ public class TestQuickSort {
 			   ,{3, 2}
 		};
 
-		String[] chosenOptions = { "2"};
+		String[] chosenOptions = {"4"};
 		HashSet<String> options = new HashSet<>( Arrays.asList(chosenOptions) );
 		
-//		for(int[] input : inputs) {
-//			out.println("-----------------------------");
-//			printArray(input);
-//			QuickSort.quickSort(input);
-//			printArray(input);
-//		}
-		
-//		for(int[] input : inputs) {
-//			out.println("-----------------------------");
-//			printArray(input);
-//			QuickSort_2_pivotAtMiddle.quickSort(input);
-//			printArray(input);
-//		}
-		
-//		for(int[] input : inputs) {
-//			out.println("-----------------------------");
-//			printArray(input);
-//			MyQuickSort.quickSort(input);
-//			printArray(input);
-//		}
-		
-//		for(int[] input : inputs) {
-//			out.println("-----------------------------");
-//			printArray(input);
-//			MyQuickSort_textbook.quickSort(input);
-//			printArray(input);
-//		}
-		
-//		for(int[] input : inputs) {
-//			out.println("-----------------------------");
-//			printArray(input);
-//			MyQuickSort_classicVersion.quickSort(input);
-//			printArray(input);
-//		}
-		
-//		for(int[] input : inputs) {
-//			out.println("-----------------------------");
-//			printArray(input);
-//			MyQuickSort_textbook_02_loose.quickSort(input);
-//			printArray(input);
-//		}
-		
-//		for(int[] input : inputs) {
-//		out.println("-----------------------------");
-//		printArray(input);
-//		QuickSort_classic_01.quickSort(input);
-//		printArray(input);
-//		
 		
 		if(options.contains("1")) {
 			for(int[] input : inputs) {
 				out.println("-----------------------------");
-				printArray(input);
-				QuickSort_textbook_freq01.quickSort(input);
-				printArray(input);
+				int[] copiedArr = Arrays.copyOf(input, input.length);
+				printArray(copiedArr);
+				QuickSort_textbook_freq01.quickSort(copiedArr);
+				printArray(copiedArr);
 			
 			}
 		}
 		
 		if(options.contains("2")) {
 			for(int[] input : inputs) {
-				out.println("-----------------------------_Practice_QuickSort_textbook");
-				printArray(input);
-				_Practice_QuickSort_textbook.sort(input);
-				printArray(input);
+				out.println("-----------------------------_Practice_QuickSort_leftRight");
+				int[] copiedArr = Arrays.copyOf(input, input.length);
+				
+				printArray(copiedArr);
+				_Practice_QuickSort_leftRight.sort(copiedArr);
+				printArray(copiedArr);
 			
 			}
 		}
+		
+		if(options.contains("3")) {
+			for(int[] input : inputs) {
+				out.println("-----------------------------_Practice_QuickSort_PivotAtLast_Strict");
+				int[] copiedArr = Arrays.copyOf(input, input.length);
+				printArray(copiedArr);
+				_Practice_QuickSort_PivotAtLast_Strict.sort(copiedArr);
+				printArray(copiedArr);
+			
+			}
+		}
+		
+		
+		if(options.contains("4")) {
+			for(int[] input : inputs) {
+				out.println("-----------------------------_Practice_QuickSort_PivotAtLast_Loose");
+				int[] copiedArr = Arrays.copyOf(input, input.length);
+				printArray(copiedArr);
+				_Practice_QuickSort_PivotAtLast_Loose.sort(copiedArr);
+				printArray(copiedArr);
+			
+			}
+		}
+		
+		
 	}
 	
 	public static void printArray(int[] arr) {

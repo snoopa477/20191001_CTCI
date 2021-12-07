@@ -1,6 +1,6 @@
 package c10_SortingAndSearching.e02_quickSort;
 import static java.lang.System.out;
-public class _Practice_QuickSort_textbook {
+public class _Practice_QuickSort_leftRight {
 	
 	public static void sort(int[] arr) {
 		quickSort(arr, 0, arr.length-1);
