@@ -1,6 +1,7 @@
 package c10_SortingAndSearching.p02_GroupAnagrams;
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 import static java.lang.System.out;
 //20191212(Thur)
@@ -9,9 +10,15 @@ public class TestGroupAnagram {
 	public static void main(String[] args) {
 		
 		
-		final String[] input_original = {"12345", "asdf", "geoeaijgr", "jifjawe","fdas", "fasd", "fdsa"};
+		final String[] input_original = {"12345", "asdf", "geoeaijgr", "jifjawe","fdas", "13524", "fasd", "fdsa"};
 		String[] input;
 		
+		
+		String[] chosenOptions = { "1", "5", "6"};
+		HashSet<String> options = new HashSet<>( Arrays.asList(chosenOptions) );
+		
+		if(options.contains("1")) {}
+		/*
 		input= Arrays.copyOf(input_original, input_original.length);
 		Arrays.sort(input, new AnagramComparator());
 		printArr(input);
@@ -56,7 +63,27 @@ public class TestGroupAnagram {
 		printArr(input);
 		
 		input= Arrays.copyOf(input_original, input_original.length);
-		printArr(input);
+		printArr(input);*/
+		
+		
+		
+		if(options.contains("5")) {
+			out.println("\n_Practice_GroupAnagrams_way01_Sorting");
+			out.println("before");
+			printArr(input_original);
+			String[] results = _Practice_GroupAnagrams_way01_Sorting.group(input_original);
+			out.println("after");
+			printArr(results);
+		}
+		
+		if(options.contains("6")) {
+			out.println("\n_Practice_GroupAnagrams_way02_map");
+			out.println("before");
+			printArr(input_original);
+			String[] results = _Practice_GroupAnagrams_way01_Sorting.group(input_original);
+			out.println("after");
+			printArr(results);
+		}
 		
 		out.println("end");
 		
