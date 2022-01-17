@@ -69,6 +69,7 @@ num7 : 65536; 10000000000000000; byte7 : 0; 0; byteToNum7 : 0
 		
 		
 		
+		
 		//the way to set value in bits, second way is better than the first way
 		//         3         2         1         0  
 		//        10987654321098765432109876543210
@@ -77,6 +78,9 @@ num7 : 65536; 10000000000000000; byte7 : 0; 0; byteToNum7 : 0
 		//OUTPUT: a1: -128; a2: -128
 		out.println( "a1: " + a1 + "; a2: " + a2 );
 		
+		
+		out.println( Integer.toHexString(byte1) );
+		out.println( Integer.toHexString(byte2) );
 		
 	}
 

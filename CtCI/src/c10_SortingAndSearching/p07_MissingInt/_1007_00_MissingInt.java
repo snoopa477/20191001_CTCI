@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class _1007_00_MissingInt {
 	long numberOfInts = ((long) Integer.MAX_VALUE) + 1;
 	byte[] bitfield = new byte[(int) (numberOfInts / 8)];
-	String filename = "...";
+	String filename = "D:\\Notes\\CTCI\\10.07\\no67.txt";
 
 	void findOpenNuMber() throws FileNotFoundException {
 		Scanner in = new Scanner(new FileReader(filename));
