@@ -32,6 +32,9 @@ public class _Practice_Rectangle {
 
 	
 	
+	
+	
+	
 }
 
 
