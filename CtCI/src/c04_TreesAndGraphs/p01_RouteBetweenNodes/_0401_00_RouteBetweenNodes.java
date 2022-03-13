@@ -6,11 +6,9 @@ import java.util.LinkedList;
 
 import util.Graph;
 import util.Node;
+import util.NodeStatus;
 
 public class _0401_00_RouteBetweenNodes {
-	enum State {
-		Unvisited, Visited, Visiting;
-	}
 
 	boolean search(Graph g, Node start, Node end) {
 		if (start == end)
@@ -18,27 +16,27 @@ public class _0401_00_RouteBetweenNodes {
 		// operates as Queue
 		LinkedList<Node> q = new LinkedList<Node>();
 		for (Node u : g.getNodes()) {
-			u.state = State.Unvisited;
+			u.state = NodeStatus.Unvisited;
 		}
-		start.state = State.Visiting;
+		start.state = NodeStatus.Visiting;
 		q.add(start);
 		Node u;
 		while (!q.isEmpty()) {
 			u = q.removeFirst(); // i.e., dequeue()
 			if (u != null) {
 				for (Node v : u.getAdjacent()) {
-					if (v.state == State.unvisited) {
+					if (v.state == NodeStatus.Unvisited) {
 						if (v == end) {
 							return true;
 						} else {
-							v.state = State.Visiting;
+							v.state = NodeStatus.Visiting;
 							q.add(v);
 						}
 					}
 
 				}
 
-				u.state = State.Visited;
+				u.state = NodeStatus.Visited;
 			}
 		}
 		return false;
