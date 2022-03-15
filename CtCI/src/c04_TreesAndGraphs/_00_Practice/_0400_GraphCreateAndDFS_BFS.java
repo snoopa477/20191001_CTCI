@@ -5,71 +5,28 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 import util.Graph;
+import util.GraphUtility;
 import util.Node;
 import util.NodeStatus;
 public class _0400_GraphCreateAndDFS_BFS {
 
 	public static void main(String[] args) {
 		
-		Graph graph01 = makeGraph01();
-		out.println("DFS");
-		DFS( graph01 );
+		Graph[] graphs = new Graph[] {GraphUtility.makeGraph01(), GraphUtility.makeGraph02()};
 		
-		out.println("BFS");
-		BFS( graph01 );
+		int counter = 1;
+		for( Graph graph : graphs ) {
+			out.printf("--------------------%d\n", counter);
+			out.println("DFS");
+			DFS( graph );
+		
+			out.println("BFS");
+			BFS( graph );
+			
+			counter++;
+		}
 		
 	}
-	
-	/*
-	DFS
-	0
-	    1
-	        3
-	            2
-	            4
-	    5
-	6
-	
-	BFS
-	0
-	1
-	4
-	5
-	3
-	4
-	2
-	6
-	 * */
-	public static  Graph makeGraph01() {
-		
-		ArrayList<Node> nodes = new ArrayList<>();
-		
-		Node node0 = new Node("0");
-		nodes.add(node0);
-		Node node1 = new Node("1");
-		nodes.add(node1);
-		Node node2 = new Node("2");
-		nodes.add(node2);
-		Node node3 = new Node("3");
-		nodes.add(node3);
-		Node node4 = new Node("4");
-		nodes.add(node4);
-		Node node5 = new Node("5");
-		nodes.add(node5);
-		Node node6 = new Node("6");
-		nodes.add(node6);
-		
-		node0.setChildren( new Node[]{node1, node4, node5} );
-		node1.setChildren( new Node[]{node3, node4} );
-		node2.setChildren( new Node[]{node1} );
-		node3.setChildren( new Node[]{node2, node4} );
-		node4.setChildren( null );
-		node5.setChildren( null );
-		node6.setChildren( null );
-		
-		return new Graph( nodes );
-	}
-	
 	
 	
 	public static void DFS(Graph graph) {
@@ -175,6 +132,13 @@ public class _0400_GraphCreateAndDFS_BFS {
 		}//while
 		
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 }
 
