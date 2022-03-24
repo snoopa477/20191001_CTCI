@@ -9,7 +9,7 @@ public class _0404_01_CheckBalanced {
 	int checkHeight(TreeNode root) {
 		if (root == null)
 			return -1;
-		int leftHeight = checkHeight(root.left);
+		int leftHeight =  checkHeight(root.left);
 		if (leftHeight == Integer.MIN_VALUE)
 			return Integer.MIN_VALUE; // Pass error up
 		int rightHeight = checkHeight(root.right);

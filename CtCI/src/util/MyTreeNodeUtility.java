@@ -115,6 +115,39 @@ public class MyTreeNodeUtility {
 	}
 	
 	
+	/*
+	 level 0:
+	 Node: 8, L: 4, R: 12
+	 
+	 level 1:
+	 Node: 4, L: 2, R:  x
+	 Node:12, L:10, R: 14
+	 
+	 level 2:
+	 Node: 2, L: 1, R:  3
+	 Node:10, L: 9, R: 11
+	 Node:14, L:13, R: 15
+	 
+	 level 3:
+	 Node: 1, L: x, R:  x
+	 Node: 3, L: x, R:  x
+	 Node: 9, L: x, R:  x
+	 Node:11, L: x, R:  x
+	 Node:13, L: x, R:  x
+	 Node:15, L: x, R:  x
+	  
+	 * */
+	public static MyTreeNode makeTree02() {
+		
+		MyTreeNode root = new MyTreeNode(8);
+		
+		Arrays.asList(4, 2, 1, 3, 12, 10, 9, 11, 14, 13, 15)
+			.forEach( key -> root.insertNodeInOrder(key) );
+		
+		return root;
+	}
+	
+	
 }
 
 
