@@ -12,12 +12,25 @@ public class Test_ListOfDepths {
 
 	public static void main(String[] args) {
 		
-		HashSet<String> options = new HashSet( Arrays.asList("1") );
+		HashSet<String> options = new HashSet( Arrays.asList("2") );
 		
 		if(options.contains("1")) {
 			
 			MyTreeNode root = MyTreeNodeUtility.makeTree01();
 			ArrayList<ArrayList<MyTreeNode>> result = _Practice_ListOfDepths_01_preOrder.getListOfDepths(root);
+			result.forEach( list -> 
+				{ 
+					list.forEach( node -> out.printf("%d ", node.data) );
+					out.println(); 
+				} );
+			
+		}
+		
+		
+		if(options.contains("2")) {
+			
+			MyTreeNode root = MyTreeNodeUtility.makeTree01();
+			ArrayList<ArrayList<MyTreeNode>> result = _Practice_ListOfDepths_02_BFS.getListOfDepths(root);
 			result.forEach( list -> 
 				{ 
 					list.forEach( node -> out.printf("%d ", node.data) );
