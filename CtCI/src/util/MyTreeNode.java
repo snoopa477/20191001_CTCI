@@ -28,6 +28,15 @@ public class MyTreeNode {
 	}
 	
 	
+	
+	public MyTreeNode(int data, MyTreeNode left, MyTreeNode right) {
+		this.data = data;
+		this.left = left;
+		this.right = right;
+		this.size = 0;
+	}
+	
+	
 	public MyTreeNode(int data, MyTreeNode parent) {
 		this.data = data;
 		this.parent = parent;

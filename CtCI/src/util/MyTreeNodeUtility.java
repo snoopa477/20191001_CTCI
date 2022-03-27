@@ -148,6 +148,60 @@ public class MyTreeNodeUtility {
 	}
 	
 	
+	
+	/*
+	 level 0:
+	 Node: 8, L: 4, R: 12
+	 
+	 level 1:
+	 Node: 4, L: 2, R:  x
+	 Node:12, L:10, R: 14
+	 
+	 level 2:
+	 Node: 2, L: 3, R:  1
+	 Node:10, L: 9, R: 11
+	 Node:14, L:13, R: 15
+	 
+	 level 3:
+	 Node: 1, L: x, R:  x
+	 Node: 3, L: x, R:  x
+	 Node: 9, L: x, R:  x
+	 Node:11, L: x, R:  x
+	 Node:13, L: x, R:  x
+	 Node:15, L: x, R:  x
+	 * */
+	//A non BST tree
+	public static MyTreeNode makeTree03() {
+		
+		/*
+		MyTreeNode root = new MyTreeNode(8);
+		Arrays.asList(4, 2, 3, 1, 12, 10, 9, 11, 14, 13, 15)
+			.forEach( key -> root.insertNodeInOrder(key) );
+		*/
+		
+		MyTreeNode nodeWithVal_01 = new MyTreeNode( 1, null, null);
+		MyTreeNode nodeWithVal_03 = new MyTreeNode( 3, null, null);
+		MyTreeNode nodeWithVal_05 = new MyTreeNode( 5, null, null);
+		MyTreeNode nodeWithVal_07 = new MyTreeNode( 7, null, null);
+		MyTreeNode nodeWithVal_09 = new MyTreeNode( 9, null, null);
+		MyTreeNode nodeWithVal_11 = new MyTreeNode(11, null, null);
+		MyTreeNode nodeWithVal_13 = new MyTreeNode(13, null, null);
+		MyTreeNode nodeWithVal_15 = new MyTreeNode(15, null, null);
+		
+		MyTreeNode nodeWithVal_02 = new MyTreeNode( 2, nodeWithVal_03, nodeWithVal_01);
+		MyTreeNode nodeWithVal_06 = new MyTreeNode( 6, nodeWithVal_05, nodeWithVal_07);
+		MyTreeNode nodeWithVal_10 = new MyTreeNode(10, nodeWithVal_09, nodeWithVal_11);
+		MyTreeNode nodeWithVal_14 = new MyTreeNode(14, nodeWithVal_13, nodeWithVal_15);
+		
+		MyTreeNode nodeWithVal_04 = new MyTreeNode( 4, nodeWithVal_02, nodeWithVal_06);
+		MyTreeNode nodeWithVal_12 = new MyTreeNode(12, nodeWithVal_10, nodeWithVal_14);
+		
+		MyTreeNode nodeWithVal_08 = new MyTreeNode( 8, nodeWithVal_04, nodeWithVal_12);
+		
+		return nodeWithVal_08;
+	}
+	
+	
 }
 
 
