@@ -30,6 +30,8 @@ public class _0407_00_BuildOrder {
 		return graph;
 	}
 
+	
+	
 	/* Return a list of the projects a correct build order. */
 	Project[] orderProjects(ArrayList<Project> projects) {
 		Project[] order = new Project[projects.size()];
@@ -57,6 +59,8 @@ public class _0407_00_BuildOrder {
 		return order;
 	}
 
+	
+	
 	/*
 	 * A helper function to insert projects with zero dependencies into the order
 	 * array, starting at index offset.
@@ -71,6 +75,8 @@ public class _0407_00_BuildOrder {
 		return offset;
 	}
 
+	
+	
 	public class Graph {
 		private ArrayList<Project> nodes = new ArrayList<Project>();
 		private HashMap<String, Project> map = new HashMap<String, Project>();
@@ -95,6 +101,8 @@ public class _0407_00_BuildOrder {
 		}
 	}
 
+	
+	
 	public class Project {
 		private ArrayList<Project> children = new ArrayList<Project>();
 		private HashMap<String, Project> map = new HashMap<String, Project>();

@@ -33,6 +33,8 @@ public class MyTreeNode {
 		this.data = data;
 		this.left = left;
 		this.right = right;
+		left.parent = this;
+		right.parent = this;
 		this.size = 0;
 	}
 	
@@ -57,6 +59,7 @@ public class MyTreeNode {
 				//THINK_FURTHER so in the following insert, this node has left, which is not null
 				left = new MyTreeNode( key, this );
 				//THINK_FURTHER no more calls, the task ends.
+				left.parent = this;
 			}
 			else {
 				left.insertNodeInOrder( key );
@@ -69,6 +72,7 @@ public class MyTreeNode {
 			}
 			else {
 				right.insertNodeInOrder( key );
+				right.parent = this;
 			}
 		}
 		
