@@ -9,12 +9,16 @@ import c04_TreesAndGraphs.p07_BuildOrder._0407_00_BuildOrder.Project;
 import util.MyStack;
 
 public class _0407_01_BuildOrder {
+	
 	MyStack<Project> findBuildOrder(String[] projects, String[][] dependencies) {
 		Graph graph = buildGraph(projects, dependencies);
 		return orderProjects(graph.getNodes());
 	}
 
+	
+	
 	MyStack<Project> orderProjects(ArrayList<Project> projects) {
+		
 		MyStack<Project> stack = new MyStack<Project>();
 		for (Project project : projects) {
 			if (project.getState() == Project.State.BLANK) {
@@ -26,6 +30,8 @@ public class _0407_01_BuildOrder {
 		return stack;
 	}
 
+	
+	
 	boolean doDFS(Project project, MyStack<Project> stack) {
 		if (project.getState() == Project.State.PARTIAL) {
 			return false; // Cycle
@@ -44,13 +50,15 @@ public class _0407_01_BuildOrder {
 		return true;
 	}
 
+	
+	
 	/* Same as before */
 	// Graph buildGraph(String[] projects, String[][] dependencies) { ... }
 	// public class Graph {}
 	Graph buildGraph(String[] projects, String[][] dependencies) {
 		Graph graph = new Graph();
 		for (String project : projects) {
-			graph.createNode(project);
+			graph.getOrCreateNode(project);
 		}
 		for (String[] dependency : dependencies) {
 			String first = dependency[0];
@@ -60,11 +68,14 @@ public class _0407_01_BuildOrder {
 		return graph;
 	}
 
+	
+	
 	/*
 	 * Essentially equivalent to earlier solution, with state info added and
 	 * dependency count removed.
 	 */
 	public static class Project {
+		
 		public enum State {
 			COMPLETE, PARTIAL, BLANK
 		};
@@ -80,15 +91,21 @@ public class _0407_01_BuildOrder {
 			return state;
 		}
 
+		
+		
 		public void setState(State st) {
 			state = st;
 		}
 
+		
+		
 		/* Duplicate code removed for brevity */
 		public Project(String n) {
 			name = n;
 		}
 
+		
+		
 		public void addNeighbor(Project node) {
 			if (!map.containsKey(node.getName())) {
 				children.add(node);
@@ -97,32 +114,46 @@ public class _0407_01_BuildOrder {
 			}
 		}
 
+		
+		
 		public void incrementDependencies() {
 			dependencies++;
 		}
 
+		
+		
 		public void decrementDependencies() {
 			dependencies--;
 		}
 
+		
+		
 		public String getName() {
 			return name;
 		}
 
+		
+		
 		public ArrayList<Project> getChildren() {
 			return children;
 		}
 
+		
+		
 		public int getNumberDependencies() {
 			return dependencies;
 		}
 
-	}
+	}//public static class Project
 
+	
+	
 	public class Graph {
+		
 		private ArrayList<Project> nodes = new ArrayList<Project>();
 		private HashMap<String, Project> map = new HashMap<String, Project>();
 
+		
 		public Project getOrCreateNode(String name) {
 			if (!map.containsKey(name)) {
 				Project node = new Project(name);
@@ -132,15 +163,24 @@ public class _0407_01_BuildOrder {
 			return map.get(name);
 		}
 
+		
+		
 		public void addEdge(String startName, String endName) {
 			Project start = getOrCreateNode(startName);
 			Project end = getOrCreateNode(endName);
 			start.addNeighbor(end);
 		}
 
+		
+		
 		public ArrayList<Project> getNodes() {
 			return nodes;
 		}
-	}
+	}//public class Graph
 
 }
+
+
+
+
+

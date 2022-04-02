@@ -6,12 +6,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class _0407_00_BuildOrder {
+	
 	/* Find a cor rect build order . */
 	Project[] findBuildOrder(String[] projects, String[][] dependencies) {
+		
 		Graph graph = buildGraph(projects, dependencies);
 		return orderProjects(graph.getNodes());
 	}
 
+	
+	
 	/*
 	 * Build the graph, adding the edge (a, b) if b is dependent on a. Assumes a
 	 * pair is listed in "build order. The pair (a, b) i n dependencies indicates
@@ -20,13 +24,15 @@ public class _0407_00_BuildOrder {
 	Graph buildGraph(String[] projects, String[][] dependencies) {
 		Graph graph = new Graph();
 		for (String project : projects) {
-			graph.createNode(project);
+			graph.getOrCreateNode(project);
 		}
+		
 		for (String[] dependency : dependencies) {
 			String first = dependency[0];
 			String second = dependency[1];
 			graph.addEdge(first, second);
 		}
+		
 		return graph;
 	}
 
@@ -34,10 +40,12 @@ public class _0407_00_BuildOrder {
 	
 	/* Return a list of the projects a correct build order. */
 	Project[] orderProjects(ArrayList<Project> projects) {
+		
 		Project[] order = new Project[projects.size()];
 		/* Add "roots to the build order first. */
 		int endOfList = addNonDependent(order, projects, 0);
 		int toBeProcessed = 0;
+		
 		while (toBeProcessed < order.length) {
 			Project current = order[toBeProcessed];
 			/*
@@ -78,9 +86,11 @@ public class _0407_00_BuildOrder {
 	
 	
 	public class Graph {
+		
 		private ArrayList<Project> nodes = new ArrayList<Project>();
 		private HashMap<String, Project> map = new HashMap<String, Project>();
 
+		
 		public Project getOrCreateNode(String name) {
 			if (!map.containsKey(name)) {
 				Project node = new Project(name);
@@ -90,20 +100,25 @@ public class _0407_00_BuildOrder {
 			return map.get(name);
 		}
 
+		
+		
 		public void addEdge(String startName, String endName) {
 			Project start = getOrCreateNode(startName);
 			Project end = getOrCreateNode(endName);
 			start.addNeighbor(end);
 		}
 
+		
+		
 		public ArrayList<Project> getNodes() {
 			return nodes;
 		}
-	}
+	}//public class Graph
 
 	
 	
 	public class Project {
+		
 		private ArrayList<Project> children = new ArrayList<Project>();
 		private HashMap<String, Project> map = new HashMap<String, Project>();
 		private String name;
@@ -113,6 +128,8 @@ public class _0407_00_BuildOrder {
 			name = n;
 		}
 
+		
+		
 		public void addNeighbor(Project node) {
 			if (!map.containsKey(node.getName())) {
 				children.add(node);
@@ -121,25 +138,35 @@ public class _0407_00_BuildOrder {
 			}
 		}
 
+		
+		
 		public void incrementDependencies() {
 			dependencies++;
 		}
 
+		
+		
 		public void decrementDependencies() {
 			dependencies--;
 		}
 
+		
+		
 		public String getName() {
 			return name;
 		}
 
+		
+		
 		public ArrayList<Project> getChildren() {
 			return children;
 		}
 
+		
+		
 		public int getNumberDependencies() {
 			return dependencies;
 		}
-	}
+	}//public class Project
 
 }
