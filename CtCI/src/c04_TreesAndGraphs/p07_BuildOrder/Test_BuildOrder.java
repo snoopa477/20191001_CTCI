@@ -11,7 +11,7 @@ public class Test_BuildOrder {
 	public static void main(String[] args) {
 		
 	
-		HashSet<String> options = new HashSet( Arrays.asList( "3" ) );
+		HashSet<String> options = new HashSet( Arrays.asList( "4" ) );
 		
 		String[] projects01 = { "A", "B", "C", "D", "E", "F", "G" };
 		String[][] dependnecies01 = { 
@@ -73,11 +73,47 @@ public class Test_BuildOrder {
 			out.println("test BuildOrder_01_Status ------------------- ");
 			out.println("test graph01 - - - - - - - - - - -");
 			String[] buildOrder = BuildOrder_01_Status.buildOrder(projects01, dependnecies01);
-			Arrays.asList(buildOrder).forEach(str -> out.printf("%s ", str));
+			if( buildOrder != null ) {
+				Arrays.asList(buildOrder).forEach(str -> out.printf("%s ", str));
+			}
+			else {
+				out.println("empty");
+			}
 			
 			out.println("\n\ntest graph03 - - - - - - - - - - -");
 			buildOrder = BuildOrder_01_Status.buildOrder(projects03, dependnecies03);
-			Arrays.asList(buildOrder).forEach(str -> out.printf("%s ", str));
+			if( buildOrder != null ) {
+				Arrays.asList(buildOrder).forEach(str -> out.printf("%s ", str));
+			}
+			else {
+				out.println("empty");
+			}
+			out.println();
+			
+			
+		}
+		
+		
+		if(options.contains("4")) {
+			
+			out.println("test BuildOrder_02_Depednecy ------------------- ");
+			out.println("test graph01 - - - - - - - - - - -");
+			String[] buildOrder = BuildOrder_02_Depednecy.buildOrder(projects01, dependnecies01);
+			if( buildOrder != null ) {
+				Arrays.asList(buildOrder).forEach(str -> out.printf("%s ", str));
+			}
+			else {
+				out.println("empty");
+			}
+			
+			out.println("\n\ntest graph03 - - - - - - - - - - -");
+			buildOrder = BuildOrder_02_Depednecy.buildOrder(projects03, dependnecies03);
+			if( buildOrder != null ) {
+				Arrays.asList(buildOrder).forEach(str -> out.printf("%s ", str));
+			}
+			else {
+				out.println("empty");
+			}	
 			out.println();
 			
 			
