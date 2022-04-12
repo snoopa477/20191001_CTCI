@@ -2,9 +2,12 @@ package util;
 import static java.lang.System.out;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
 public class MyTreeNodeUtility {
-
+	
+	public static Integer[] input01 = {4, 2, 1, 3, 6, 5, 7, 12, 10, 9, 11, 14, 13, 15};
+	
 	public static MyTreeNode makeTree(int[] inputs) {
 		
 		MyTreeNode root = new MyTreeNode(inputs[0]);
@@ -108,11 +111,13 @@ public class MyTreeNodeUtility {
 		
 		MyTreeNode root = new MyTreeNode(8);
 		
-		Arrays.asList(4, 2, 1, 3, 6, 5, 7, 12, 10, 9, 11, 14, 13, 15)
+		//Arrays.asList(4, 2, 1, 3, 6, 5, 7, 12, 10, 9, 11, 14, 13, 15)
+		Arrays.asList( input01 )
 			.forEach( key -> root.insertNodeInOrder(key) );
 		
 		return root;
 	}
+	
 	
 	
 	/*
@@ -201,6 +206,35 @@ public class MyTreeNodeUtility {
 		return nodeWithVal_08;
 	}
 	
+	
+	
+	//REASONING: the reason Key type Integer not adopted is because same value ( e.g. 3) however the Integer object might be different -> cannot use map.get
+	//public static HashMap<Integer, MyTreeNode> getValueToNode( MyTreeNode root ){
+	public static HashMap<String, MyTreeNode> getValueToNode( MyTreeNode root ){
+		
+		HashMap<String, MyTreeNode> valueToNode = new HashMap<>();
+		getValueToNodeHelper( root, valueToNode );
+		
+		return valueToNode;
+	}
+	
+	
+	
+	private static void getValueToNodeHelper( MyTreeNode root, HashMap<String, MyTreeNode> valueToNode ) {
+		
+		if(root == null) {
+			return ;
+		}
+		
+		valueToNode.put( String.valueOf( root.data ), root );
+		
+		getValueToNodeHelper(root.left, valueToNode);
+		//MISTAKE: typo
+		//getValueToNodeHelper(root.left, valueToNode);
+		getValueToNodeHelper(root.right, valueToNode);
+		
+		
+	}
 	
 }
 

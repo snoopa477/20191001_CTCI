@@ -15,6 +15,8 @@ public class _0408_04_FirstCommonAncestor {
 		}
 	}
 
+	
+	
 	TreeNode commonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 		Result r = commonAncHelper(root, p, q);
 		if (r.isAncestor) {
@@ -23,6 +25,8 @@ public class _0408_04_FirstCommonAncestor {
 		return null;
 	}
 
+	
+	
 	Result commonAncHelper(TreeNode root, TreeNode p, TreeNode q) {
 		if (root == null)
 			return new Result(null, false);

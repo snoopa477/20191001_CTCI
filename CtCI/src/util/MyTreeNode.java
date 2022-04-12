@@ -108,6 +108,21 @@ public class MyTreeNode {
 	}
 	
 	
+	@Override 
+	public String toString() {
+		
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append( String.format("{data=%d, size=%d, leftValue=%s, rightValue=%s, parentValue=%s}"
+				,data
+				,size
+				,left != null? String.valueOf(left.data): "NULL" 
+				,right != null? String.valueOf(right.data): "NULL" 
+				,parent != null? String.valueOf(parent.data): "NULL") );
+		
+		return sb.toString();
+	}
+	
 	
 }
 
