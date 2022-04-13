@@ -88,9 +88,12 @@ public static MyTreeNode getCommonAncestor( MyTreeNode root, MyTreeNode nodeA, M
 		containsNodesInTreeHelper(isContainingNode_A, isContainingNode_B, root, nodeA, nodeB);
 	}
 	
+	//isA_inTree
+	//isNodeA_inTree
+	//isContainingNode_A
 	
-	
-	private static void containsNodesInTreeHelper( BooleanHolder isContainingNode_A, BooleanHolder isContainingNode_B, MyTreeNode root, MyTreeNode nodeA, MyTreeNode nodeB ) {
+	//private static void containsNodesInTreeHelper( BooleanHolder isContainingNode_A, BooleanHolder isContainingNode_B, MyTreeNode root, MyTreeNode nodeA, MyTreeNode nodeB ) {
+	private static void containsNodesInTreeHelper( BooleanHolder isA_inTree, BooleanHolder isB_inTree, MyTreeNode root, MyTreeNode nodeA, MyTreeNode nodeB ) {
 		
 		if( root == null ) {
 			return;
@@ -103,26 +106,26 @@ public static MyTreeNode getCommonAncestor( MyTreeNode root, MyTreeNode nodeA, M
 		 ; At that point, if a node still NOT in a tree; then it is really the final state.  
 		 However, a node in a tree is final state regardless of reaching bottom or not
 		 When all nodes are confirmed, we can return*/
-		if( isContainingNode_A.value && isContainingNode_B.value ) {
+		if( isA_inTree.value && isB_inTree.value ) {
 			return;
 		}
 		
 
 		if( root == nodeA ) {
-			isContainingNode_A.value = true;
+			isA_inTree.value = true;
 		}
 		
 		
 		if( root == nodeB ){
-			isContainingNode_B.value = true;
+			isB_inTree.value = true;
 		}
 		
 		
-		containsNodesInTreeHelper( isContainingNode_A, isContainingNode_B, root.left, nodeA, nodeB );
-		if( isContainingNode_A.value && isContainingNode_B.value ) {
+		containsNodesInTreeHelper( isA_inTree, isB_inTree, root.left, nodeA, nodeB );
+		if( isA_inTree.value && isB_inTree.value ) {
 			return;
 		}
-		containsNodesInTreeHelper( isContainingNode_A, isContainingNode_B, root.right, nodeA, nodeB );
+		containsNodesInTreeHelper( isA_inTree, isB_inTree, root.right, nodeA, nodeB );
 	}
 	
 	
