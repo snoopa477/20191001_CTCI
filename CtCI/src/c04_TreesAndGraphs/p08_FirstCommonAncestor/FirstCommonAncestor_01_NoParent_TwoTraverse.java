@@ -6,6 +6,8 @@ import java.util.HashMap;
 import util.MyTreeNode;
 import util.MyTreeNodeUtility;
 public class FirstCommonAncestor_01_NoParent_TwoTraverse {
+	
+	
 
 	//public static MyTreeNode getCommonAncestor( MyTreeNode root, MyTreeNode node01, MyTreeNode node02 ) {
 	public static MyTreeNode getCommonAncestor( MyTreeNode root, MyTreeNode nodeA, MyTreeNode nodeB ) {
@@ -34,7 +36,9 @@ public class FirstCommonAncestor_01_NoParent_TwoTraverse {
 		
 		//THINK_FURTHER: Under the premise both nodes in the whole tree( except for the root), If a node not in left subtree, it is must in right subtree 
 		boolean isNodeA_inLeftTree = containsNodeInTree(root.left, nodeA);
-		boolean isNodeB_inLeftTree = containsNodeInTree(root.right, nodeB);
+		//MISTAKE: typo. so it's important to write down the purpose before coding; it makes easy to debug such nuance
+		//boolean isNodeB_inLeftTree = containsNodeInTree(root.right, nodeB);
+		boolean isNodeB_inLeftTree = containsNodeInTree(root.left, nodeB);
 		
 		//PURPOSE: if both nodes are on the same side, we keep going deep until they diverge apart
 		if( isNodeA_inLeftTree == true && isNodeB_inLeftTree == true ) {
@@ -86,6 +90,7 @@ public class FirstCommonAncestor_01_NoParent_TwoTraverse {
 		
 		//return  containsNode(root.left, target) || containsNode(root.right, target);
 	}
+	
 	
 	
 	
