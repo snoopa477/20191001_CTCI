@@ -8,71 +8,58 @@ import util.MyTreeNodeUtility;
 public class FirstCommonAncestor_02_NoParent_OneTraverse {
 
 	
-	
-public static MyTreeNode getCommonAncestor( MyTreeNode root, MyTreeNode nodeA, MyTreeNode nodeB ) {
+	public static MyTreeNode getCommonAncestor( MyTreeNode root, MyTreeNode nodeA, MyTreeNode nodeB ) {
 		
-		if( containsNodeInTree(root, nodeA) == false || containsNodeInTree(root, nodeB) == false) {
+		BooleanHolder isA_inTree = new BooleanHolder( false );
+		BooleanHolder isB_inTree = new BooleanHolder( false );
+		containsNodesInTree( isA_inTree, isB_inTree, root, nodeA, nodeB );
+		if( isA_inTree.value == false || isB_inTree.value == false ) {
 			return null;
 		}
+		
 		
 		return getCommonAncestorHelper( root, nodeA, nodeB );
 	}
 	
 	
 	
-	//PURPOSE: if both nodes are on the same side, we keep going deep until they diverge apart, and when it happens the root is the first common ancestor
 	private static MyTreeNode getCommonAncestorHelper( MyTreeNode root, MyTreeNode nodeA, MyTreeNode nodeB ) {
+		
+		//MISTAKE: don't forget about the trivial case; they usually appear at first
+		//DETAIL: the following is not preferred 
+		//if( root == null || root == nodeA || root == nodeB ) return root; 
+		//THINK_FURTHER: reaching here meaning along the whole path no other return statement is met
+		if( root == null ) {
+			return null;
+		}
+		
 		
 		if( root == nodeA ) {
 			return nodeA;
 		}
 		
-		if( root == nodeB) {
+		
+		if( root == nodeB ) {
 			return nodeB;
 		}
 		
-		//THINK_FURTHER: Under the premise both nodes in the whole tree( except for the root), If a node not in left subtree, it is must in right subtree 
-		boolean isNodeA_inLeftTree = containsNodeInTree(root.left, nodeA);
-		//boolean isNodeB_inLeftTree = containsNodeInTree(root.right, nodeB);
-		boolean isNodeB_inLeftTree = containsNodeInTree(root.left, nodeB);
 		
-		//PURPOSE: if both nodes are on the same side, we keep going deep until they diverge apart
-		if( isNodeA_inLeftTree == true && isNodeB_inLeftTree == true ) {
-			return getCommonAncestor(root.left, nodeA, nodeB);
+		BooleanHolder isA_inLeftTree = new BooleanHolder( false );
+		BooleanHolder isB_inLeftTree = new BooleanHolder( false );
+		containsNodesInTree( isA_inLeftTree, isB_inLeftTree, root.left, nodeA, nodeB );
+		
+		if( isA_inLeftTree.value == true && isA_inLeftTree.value == isB_inLeftTree.value ) {
+			return getCommonAncestorHelper(root.left, nodeA, nodeB);
 		}
 		
-		//REASONING: both nodes are on the right side
-		if( isNodeA_inLeftTree == false && isNodeB_inLeftTree == false ) {
-			return getCommonAncestor(root.right, nodeA, nodeB);
+		if( isA_inLeftTree.value == false && isA_inLeftTree.value == isB_inLeftTree.value ) {
+			return getCommonAncestorHelper(root.right, nodeA, nodeB);
 		}
 		
-		//THINK_FURTHER: reaching here meaning this is the first time both node 'diverge apart' at this root node, meaning the root node, common ancestor
-		
+		//REASONING Reaching here meaning isA_inLeftTree.value != isB_inLeftTree.value => diverge
 		return root;
 	}
 	
-	
-	
-	private static boolean containsNodeInTree( MyTreeNode root, MyTreeNode target ) {
-		
-		if( root == null) {
-			return false;
-		}
-		
-		if( root == target ) {
-			return true;
-		}
-		
-		
-		boolean leftResult = containsNodeInTree(root.left, target);
-		if( leftResult == true ) {
-			return true;
-		}
-		
-		boolean rightResult = containsNodeInTree(root.right, target);
-		return rightResult; 
-		
-	}
 	
 	
 	/* PURPOSE
@@ -88,10 +75,9 @@ public static MyTreeNode getCommonAncestor( MyTreeNode root, MyTreeNode nodeA, M
 		containsNodesInTreeHelper(isContainingNode_A, isContainingNode_B, root, nodeA, nodeB);
 	}
 	
-	//isA_inTree
-	//isNodeA_inTree
-	//isContainingNode_A
 	
+	
+	//DETAIL: name consideration: isA_inTree, isNodeA_inTree, isContainingNode_A
 	//private static void containsNodesInTreeHelper( BooleanHolder isContainingNode_A, BooleanHolder isContainingNode_B, MyTreeNode root, MyTreeNode nodeA, MyTreeNode nodeB ) {
 	private static void containsNodesInTreeHelper( BooleanHolder isA_inTree, BooleanHolder isB_inTree, MyTreeNode root, MyTreeNode nodeA, MyTreeNode nodeB ) {
 		
@@ -142,10 +128,8 @@ public static MyTreeNode getCommonAncestor( MyTreeNode root, MyTreeNode nodeA, M
 		MyTreeNode node10 = valueToNode.get("10");
 		
 		{
-			BooleanHolder isContainingNode_02 = new BooleanHolder();
-			isContainingNode_02.value = false;
-			BooleanHolder isContainingNode_10 = new BooleanHolder();
-			isContainingNode_10.value = false;
+			BooleanHolder isContainingNode_02 = new BooleanHolder( false );
+			BooleanHolder isContainingNode_10 = new BooleanHolder( false );
 			
 			containsNodesInTree(isContainingNode_02, isContainingNode_10, node04, node02, node10);
 			out.printf("\nfor tree node /w %s \nIs node /w %s in it? %s \nIs node /w %s in it? %s"
@@ -167,6 +151,12 @@ public static MyTreeNode getCommonAncestor( MyTreeNode root, MyTreeNode nodeA, M
 
 class BooleanHolder{
 	public boolean value;
+
+	public BooleanHolder(boolean value) {
+		this.value = value;
+	}
+	
+	
 }
 
 
