@@ -27,22 +27,19 @@ public class FirstCommonAncestor_02_NoParent_OneTraverse {
 		
 		//MISTAKE: don't forget about the trivial case; they usually appear at first
 		//DETAIL: the following is not preferred 
-		//if( root == null || root == nodeA || root == nodeB ) return root; 
+		//if( root == null || root == nodeA || root == nodeB ) return root; even though they have same if body, their logic is different
 		//THINK_FURTHER: reaching here meaning along the whole path no other return statement is met
 		if( root == null ) {
 			return null;
 		}
 		
-		
 		if( root == nodeA ) {
 			return nodeA;
 		}
 		
-		
 		if( root == nodeB ) {
 			return nodeB;
 		}
-		
 		
 		BooleanHolder isA_inLeftTree = new BooleanHolder( false );
 		BooleanHolder isB_inLeftTree = new BooleanHolder( false );

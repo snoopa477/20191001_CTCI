@@ -12,7 +12,7 @@ public class Test_FirstCommonAncestor {
 
 	public static void main(String[] args) {
 		
-		HashSet<String> options = new HashSet( Arrays.asList( "2" ) );
+		HashSet<String> options = new HashSet( Arrays.asList( "4" ) );
 		
 		MyTreeNode tree01 = MyTreeNodeUtility.makeTree01();
 		HashMap<String, MyTreeNode> graph01 = MyTreeNodeUtility.getValueToNode(tree01);
@@ -34,7 +34,6 @@ public class Test_FirstCommonAncestor {
 			printTestingResult_FirstCommonAncestor_01_NoParent_TwoTraverse(tree01, node14, node99);
 		}
 		
-		
 		if( options.contains("2") ) {
 			
 			out.println("FirstCommonAncestor_02_NoParent_OneTraverse-------------");
@@ -45,6 +44,19 @@ public class Test_FirstCommonAncestor {
 			printTestingResult_FirstCommonAncestor_02_NoParent_OneTraverse(tree01, node14, node99);
 		}
 		
+		if( options.contains("3") ) {
+			printTestingResult_FirstCommonAncestor_03_Parent_Sibling(tree01, node04, node09);
+			printTestingResult_FirstCommonAncestor_03_Parent_Sibling(tree01, node14, node09);
+			printTestingResult_FirstCommonAncestor_03_Parent_Sibling(tree01, node12, node09);
+			printTestingResult_FirstCommonAncestor_03_Parent_Sibling(tree01, node14, node99);
+		}
+		
+		if( options.contains("4") ) {
+			printTestingResult_FirstCommonAncestor_04_Parent_SameDepth(tree01, node04, node09);
+			printTestingResult_FirstCommonAncestor_04_Parent_SameDepth(tree01, node14, node09);
+			printTestingResult_FirstCommonAncestor_04_Parent_SameDepth(tree01, node12, node09);
+			printTestingResult_FirstCommonAncestor_04_Parent_SameDepth(tree01, node14, node99);
+		}
 		
 	}
 	
@@ -67,6 +79,32 @@ public class Test_FirstCommonAncestor {
 	private static void printTestingResult_FirstCommonAncestor_02_NoParent_OneTraverse( MyTreeNode treeRoot, MyTreeNode nodeA, MyTreeNode nodeB ) {
 		
 		MyTreeNode resultNode = FirstCommonAncestor_02_NoParent_OneTraverse.getCommonAncestor(treeRoot, nodeA, nodeB);
+		
+		out.printf("node w/ %s and node w/ %s 's common ancestor w/ %s\n"
+				, nodeA != null ? String.valueOf( nodeA.data ) : "X"
+				, nodeB != null ? String.valueOf( nodeB.data ) : "X"
+				, resultNode != null ? String.valueOf( resultNode.data ) : "X"
+				);
+	}
+	
+	
+	
+	private static void printTestingResult_FirstCommonAncestor_03_Parent_Sibling( MyTreeNode treeRoot, MyTreeNode nodeA, MyTreeNode nodeB ) {
+		
+		MyTreeNode resultNode = FirstCommonAncestor_03_Parent_Sibling.getCommonAncestor(treeRoot, nodeA, nodeB);
+		
+		out.printf("node w/ %s and node w/ %s 's common ancestor w/ %s\n"
+				, nodeA != null ? String.valueOf( nodeA.data ) : "X"
+				, nodeB != null ? String.valueOf( nodeB.data ) : "X"
+				, resultNode != null ? String.valueOf( resultNode.data ) : "X"
+				);
+	}
+	
+	
+	
+	private static void printTestingResult_FirstCommonAncestor_04_Parent_SameDepth( MyTreeNode treeRoot, MyTreeNode nodeA, MyTreeNode nodeB ) {
+		
+		MyTreeNode resultNode = FirstCommonAncestor_04_Parent_SameDepth.getCommonAncestor(treeRoot, nodeA, nodeB);
 		
 		out.printf("node w/ %s and node w/ %s 's common ancestor w/ %s\n"
 				, nodeA != null ? String.valueOf( nodeA.data ) : "X"
