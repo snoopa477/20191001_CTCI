@@ -10,11 +10,13 @@ import util.TreeNode;
 public class _0409_00_BSTSequence {
 
 	ArrayList<LinkedList<Integer>> allSequences(TreeNode node) {
+		
 		ArrayList<LinkedList<Integer>> result = new ArrayList<LinkedList<Integer>>();
 		if (node == null) {
 			result.add(new LinkedList<Integer>());
 			return result;
 		}
+		
 		LinkedList<Integer> prefix = new LinkedList<Integer>();
 		prefix.add(node.data);
 		/* Recurse on left and right subtrees. */
@@ -31,6 +33,8 @@ public class _0409_00_BSTSequence {
 		return result;
 	}
 
+	
+	
 	/*
 	 * Weave lists together in all possible ways. This algorithm works by removing
 	 * the head from one list, recursing, and then doing the same thing with the
@@ -38,6 +42,7 @@ public class _0409_00_BSTSequence {
 	 */
 	void weaveLists(LinkedList<Integer> first, LinkedList<Integer> second, ArrayList<LinkedList<Integer>> results,
 			LinkedList<Integer> prefix) {
+		
 		/* One list is empty. Add remainder to [a cloned] prefix and store result. */
 		if (first.size() == 0 || second.size() == 0) {
 			LinkedList<Integer> result = (LinkedList<Integer>) prefix.clone();
@@ -46,6 +51,7 @@ public class _0409_00_BSTSequence {
 			results.add(result);
 			return;
 		}
+		
 		/*
 		 * Recurse with head of first added to the prefix. Removing the head will damage
 		 * first, so we'll need to put it back where we found it afterwards.
@@ -63,3 +69,7 @@ public class _0409_00_BSTSequence {
 		second.addFirst(headSecond);
 	}
 }
+
+
+
+

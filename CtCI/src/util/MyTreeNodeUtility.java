@@ -63,6 +63,52 @@ public class MyTreeNodeUtility {
 	}
 	
 	
+	
+	public static void printBFSwithDetail( MyTreeNode root ) {
+		
+		//THINK_FURTHER: due to first in first out, if something is put into queue, that thing will be executed first, and the first thing to put is 'neighbor', hence fulfill the purpose of BFS
+		LinkedList<MyTreeNode> queue = new LinkedList<>();
+		
+		queue.addFirst(root);
+		
+		while( queue.isEmpty() == false ) {
+			
+			MyTreeNode currentNode = queue.removeLast();
+			
+			if( currentNode != null ) {
+				out.printf(getNodeDetail( currentNode ));
+				
+				//PURPOSE: put the adjacents into the queue, which are left and right nodes
+				queue.addFirst( currentNode.left );
+				queue.addFirst( currentNode.right );
+				
+			}
+			
+		}
+		
+	}
+	
+	
+	
+	private static String getNodeDetail( MyTreeNode root) {
+		
+		StringBuilder stringBuilder = new StringBuilder();
+		
+		if( root == null) {
+			stringBuilder.append("null\n");
+		}
+		
+		stringBuilder.append( String.format("node %s, parent %s, leftChild %s, rightChild %s\n"
+				, String.valueOf( root.data )
+				, root.parent == null ? "X" : String.valueOf( root.parent.data ) 
+				, root.left == null ? "X" : String.valueOf( root.left.data ) 
+				, root.right == null ? "X" : String.valueOf( root.right.data ) 
+				) );
+		
+		return stringBuilder.toString();
+	}
+	
+	
 	//REASONING: the height depends on left and right tree -> post order
 	public static int getHeightOfTree( MyTreeNode root ) {
 		
@@ -204,6 +250,32 @@ public class MyTreeNodeUtility {
 		MyTreeNode nodeWithVal_08 = new MyTreeNode( 8, nodeWithVal_04, nodeWithVal_12);
 		
 		return nodeWithVal_08;
+	}
+	
+	
+	/*
+	 level 0:
+	 Node: 4, L: 2, R: 6
+	 
+	 level 1:
+	 Node: 2, L: 1, R:  3
+	 Node: 6, L: 5, R:  7
+	 
+	 level 2:
+	 Node: 1, L: X, R:  X
+	 Node: 3, L: X, R:  X
+	 Node: 5, L: X, R:  X
+	 Node: 7, L: X, R:  X
+	 
+	 * */
+	public static MyTreeNode makeTree04() {
+		
+		MyTreeNode root = new MyTreeNode(4);
+		
+		Arrays.asList(2, 1, 3, 6, 5, 7)
+			.forEach( key -> root.insertNodeInOrder(key) );
+		
+		return root;
 	}
 	
 	
