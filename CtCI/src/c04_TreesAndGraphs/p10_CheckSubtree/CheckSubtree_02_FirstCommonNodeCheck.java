@@ -17,7 +17,7 @@ public class CheckSubtree_02_FirstCommonNodeCheck {
 			return true;
 		}
 		
-		if( big_TreeRoot == null) {
+		if( big_TreeRoot == null || small_TreeRoot == null) {
 			return false;
 		}
 		
