@@ -12,6 +12,8 @@ public class _0412_01_PathsWithSum {
 		return countPathsWithSum(root, targetSum, 0, new HashMap<Integer, Integer>());
 	}
 
+	
+	
 	int countPathsWithSum(TreeNode node, int targetSum, int runningSum, HashMap<Integer, Integer> pathCount) {
 		if (node == null)
 			return 0; // Base case
@@ -34,6 +36,8 @@ public class _0412_01_PathsWithSum {
 		return totalPaths;
 	}
 
+	
+	
 	void incrementHashTable(HashMap<Integer, Integer> hashTable, int key, int delta) {
 		int newCount = hashTable.getOrDefault(key, 0) + delta;
 		if (newCount == 0) { // Remove when zero to reduce space usage
