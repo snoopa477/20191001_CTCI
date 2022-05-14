@@ -8,23 +8,25 @@ public class PathsWithSum_02_MultiOneLine_MapObject {
 
 	public static int countPathsWithGivenSum( MyTreeNode root, int targetSum ) {
 		
-		//temp 
-		return 0;
+		return countPathsWithGivenSum( new HashMap<>(), root, 0, targetSum );
 	}
 	
 	
 	
 	/**
-	 * When referring sum, it means the sum from root node to either old/previous or current node
+	 * get the number of paths which value is equal to target sum; nodes that make path are descendants of the root 
+	 * <br>path exists if two nodes are existent. 
+	 * <br> if path consists of starting node s, and ending node e, then path value is value(node e) - value (node s);
+	 * <br> however, if ending node is root, then starting node must be root as well, causing path value = 0
 	 * 
-	 * @param oldSum_to_Count, old sum means counted sum from root node
-	 * @param root
-	 * @param currentSum, counted from root node
-	 * @param targetSum
-	 * @return
+	 * <br><h2>NAMING RULE</h2>
+	 * <br>X: some node between root and current node
+	 * <br>C: current node
+	 * <br>R: root node
+	 * <br>node relationship R ->... -> X -> ... -> C
 	 */
-	//private static int countPathsWithGivenSum( HashMap<Integer, Integer> visitedSumFromRoot_to_count, MyTreeNode root, int currentSumFromRoot, final int targetSum ) {
-	private static int countPathsWithGivenSum( HashMap<Integer, Integer> oldSum_to_Count, MyTreeNode root, int currentSum, final int targetSum ) {
+	//RENAME. private static int countPathsWithGivenSum( HashMap<Integer, Integer> visitedSumFromRoot_to_count, MyTreeNode root, int currentSumFromRoot, final int targetSum ) {
+	private static int countPathsWithGivenSum( HashMap<Integer, Integer> pathValRX_to_Count, MyTreeNode root, int pathVal_RC, final int targetSum ) {
 		
 		if( root == null ) {
 			return 0;
@@ -32,11 +34,10 @@ public class PathsWithSum_02_MultiOneLine_MapObject {
 		
 		//THINK_FURTHER: it is not quite obvious currentSum is changing over each call
 		//this variable is qualified after the operation
-		currentSum += root.data;
+		pathVal_RC += root.data;
 		
 		
-		/* EXPLAIN
-		 * countPaths consists of three parts
+		/* PURPOSE countPaths consists of three parts
 		 * 1. the currentNode is either 0 or 1
 		 * 2. gain 0 or more from oldNodes
 		 * 3. collect descendant nodes result
@@ -45,42 +46,38 @@ public class PathsWithSum_02_MultiOneLine_MapObject {
 		int countPaths = 0;
 		
 		//PURPOSE part 1  the currentNode is either 0 or 1
-		if( currentSum == targetSum ) {
-			//this sum count as one
+		if( pathVal_RC == targetSum ) {
 			countPaths += 1;
 		}
 		
 		//RENAME. int possiblePathToCurrentSum = targetSum;
-		/*THINK_FURTHER: 
-		 * targetSum might be the path, starting with the previous node, and ending with current node.
-		 * if this is the case, the likely sum--which equals to currentSum - likelyPath -- would exist;
-		 * in other words, it can be found in the oldSum_to_Count map
-		 */
-		int likelyPath = targetSum;
+		
+		//DETAIL assume there exists a path -- from some node to current node-- has such value = targetSum
+		int likelyPathVal_XC = targetSum;
 		
 		//RENAME. int possibleVisitedSumFromRoot = currentSum - likelyPath;
-		int likelySum = currentSum - likelyPath;
+		//DETAIL: get pathVal_RX so it can be used to lookup map object
+		int likelyPathVal_RX = pathVal_RC - likelyPathVal_XC;
 		
-		/*PURPOSE: if the map object actually contains such key -> likely sum exists 
-		 * -> there exists a path(likelyPath) starting with some node to current node, which equals to TARGETSUM, preceded by likely sum
-		 */
+
+		//REASONING:check if pathVal_RX exist? if so, pathVal_XC exists as well
 		//PURPOSE part 2. gain 0 or more from oldNodes
-		if( oldSum_to_Count.containsKey( likelySum ) ) {
-			//number of likelyPath = number of likely sum 
-			countPaths += oldSum_to_Count.get( likelySum );
+		if( pathValRX_to_Count.containsKey( likelyPathVal_RX ) ) {
+			//number of likelyPathVal_RX = number of likelyPathVal_XC
+			countPaths += pathValRX_to_Count.get( likelyPathVal_RX );
 		}
 		
 
 		//PURPOSE part 3. collect descendant nodes result
-		
+		//IMAGINE now the current becomes part of old node
 		//before calling sub function, update map object by considering current node change, because the following function are influenced by current node
-		updateMapBy_AddingCount( oldSum_to_Count, currentSum );
+		updateMapBy_AddingCount( pathValRX_to_Count, pathVal_RC );
 		
-		countPaths += countPathsWithGivenSum( oldSum_to_Count, root.left, currentSum, targetSum );
-		countPaths += countPathsWithGivenSum( oldSum_to_Count, root.right, currentSum, targetSum );
+		countPaths += countPathsWithGivenSum( pathValRX_to_Count, root.left, pathVal_RC, targetSum );
+		countPaths += countPathsWithGivenSum( pathValRX_to_Count, root.right, pathVal_RC, targetSum );
 		
 		//after calling sub function, restore map object state by NOT considering current node change, because once current node ends, the current stack is destroyed and shifting to other node
-		updateMapBy_DecreasingCount( oldSum_to_Count, currentSum );
+		updateMapBy_DecreasingCount( pathValRX_to_Count, pathVal_RC );
 		
 		
 		return countPaths;
@@ -90,7 +87,7 @@ public class PathsWithSum_02_MultiOneLine_MapObject {
 	
 	private static void updateMapBy_AddingCount( HashMap<Integer, Integer> sumToCount, int sum ) {
 		
-		/* EXPLAIN
+		/* REASONING
 		 * if non existent key -> count = 0; after added by 1, count = 1
 		 * if existent key -> count >= 1; after added by 1, count >=2
 		 */
@@ -116,11 +113,7 @@ public class PathsWithSum_02_MultiOneLine_MapObject {
 		
 	}
 	
-	
-	
 }
-
-
 
 
 
