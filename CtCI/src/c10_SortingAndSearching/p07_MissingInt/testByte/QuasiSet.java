@@ -17,6 +17,7 @@ public class QuasiSet {
 	public QuasiSet(int maxValue) {
 		this.maxValue = maxValue;
 		int totalElement = maxValue + 1;
+		//DETAIL: given x and y, x == x / y + x % y
 		int arraySize = ( totalElement -1 ) / BYTE_SIZE_BITS + 1;
 		indexToExistence = new byte[ arraySize ];
 	}

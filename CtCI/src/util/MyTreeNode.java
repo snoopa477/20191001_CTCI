@@ -18,8 +18,6 @@ public class MyTreeNode {
 
 
 	
-
-
 	public MyTreeNode(int data) {
 		this.data = data;
 		this.left = null;
@@ -39,6 +37,7 @@ public class MyTreeNode {
 	}
 	
 	
+	
 	public MyTreeNode(int data, MyTreeNode parent) {
 		this.data = data;
 		this.parent = parent;
@@ -46,6 +45,14 @@ public class MyTreeNode {
 		this.right = null;
 		this.size = 0;
 	}
+	
+	
+	
+	public void setChildren( MyTreeNode left, MyTreeNode right ) {
+		this.left = left;
+		this.right = right;
+	}
+	
 	
 	
 	/*PURPOSE: create a new node to either left or right side.
@@ -79,6 +86,8 @@ public class MyTreeNode {
 		size++;
 	}
 	
+	
+	
 	//REASONING: if there exists a node that has such key, then there must exists the path, consisting left and right, and the searching path is exactly the same as the path, no deviation
 	//REASONING: null node iff the end of the searching path, meaning all nodes don't have such value -> not found
 	public MyTreeNode findNodeByValue( int key ) {
@@ -106,6 +115,7 @@ public class MyTreeNode {
 			}
 		}
 	}
+	
 	
 	
 	@Override 

@@ -7,6 +7,11 @@ public class PathsWithSum_01_Intuition {
 	//PURPOSE: use this function to traverse every node in the tree; in other words, for each node, it calls its own countPathsWithGivenSum_FromThisNode, starting with currentSum 0
 	public static int countPathsWithGivenSum_UnderThisNode( MyTreeNode root, int targetSum ) {
 		
+		//MISTAKE
+		if( root == null ) {
+			return 0;
+		}
+		
 		int resultFrom_Root = countPathsWithGivenSum_FromThisNode( root, 0, targetSum );
 		
 		int resultFrom_LeftTree = countPathsWithGivenSum_UnderThisNode( root.left, targetSum );
