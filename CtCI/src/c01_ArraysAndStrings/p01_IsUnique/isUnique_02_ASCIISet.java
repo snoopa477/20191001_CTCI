@@ -8,7 +8,7 @@ public class isUnique_02_ASCIISet {
 	
 	static final public int NUMBER_VISIBLE_CHARS = 128;
 	
-	static boolean isUniqu(String str) {
+	static boolean isUnique(String str) {
 		
 		//if( str == null || str.length() == 0) {
 		//REASONING: all presentatable number of chars is 128; over that number meaning there must exist duplication

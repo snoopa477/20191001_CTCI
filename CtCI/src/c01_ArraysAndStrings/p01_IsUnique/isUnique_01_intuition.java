@@ -1,6 +1,6 @@
 package c01_ArraysAndStrings.p01_IsUnique;
 import static java.lang.System.out;
-public class isUnique_01_ASCIISet_intuition {
+public class isUnique_01_intuition {
 
 	static final public int NUMBER_VISIBLE_CHARS = 128;
 	
@@ -19,7 +19,7 @@ public class isUnique_01_ASCIISet_intuition {
 			int currCharIndex = str.charAt(i);
 			//IMAGINATION: set.contains
 			if( set[ currCharIndex ] == true ) {
-				return false;
+				return true;
 			}
 			
 			set[ currCharIndex ] = true;
