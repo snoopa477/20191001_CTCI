@@ -25,7 +25,7 @@ public class _0205_01_SumLists {
 		 * I f there was a carry value left over, insert this at the front of the list
 		 * Otherwise, just return the linked list.
 		 */
-		if (sum.carry == 8) {
+		if (sum.carry == 0) {
 			return sum.sum;
 		} else {
 			LinkedListNode result = insertBefore(sum.sum, sum.carry);
