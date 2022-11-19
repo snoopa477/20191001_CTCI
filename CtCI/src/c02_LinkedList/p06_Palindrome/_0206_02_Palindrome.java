@@ -5,6 +5,19 @@ import static java.lang.System.out;
 import util.LinkedListNode;
 
 public class _0206_02_Palindrome {
+	
+	class Result{
+		public LinkedListNode node;
+		public boolean result;
+		
+		public Result(LinkedListNode node, boolean result) {
+			super();
+			this.node = node;
+			this.result = result;
+		}
+		
+	}
+	
 	boolean isPalindrome(LinkedListNode head) {
 		int length = lengthOfList(head);
 		Result p = isPalindromeRecurse(head, length);

@@ -11,20 +11,28 @@ public class Test_SumLists {
 
 	public static void main(String[] args) {
 		
-		int[] numbers = {45, 987};
 		
-		for(  int number: numbers) {
-			LinkedListNode digitList = makeDigitList( number );
-			out.println( geListStr(digitList) );
-		}
+		int[][] arrayOfNumbers = { 
+			{45, 987},
+			{9999, 1}};
 		
+		for( int[] numbers : arrayOfNumbers ) {
 		
-		LinkedListNode digitList0 = makeDigitList( numbers[0] );
-		LinkedListNode digitList1 = makeDigitList( numbers[1] );
-		
-		LinkedListNode digitList_sum = SumLists_01_boomerang.add(digitList0, digitList1);
-		out.println( geListStr(digitList_sum) );
+			out.println("\n++++SumLists_01_boomerang++++");
 			
+			for(  int number: numbers) {
+				LinkedListNode digitList = makeDigitList( number );
+				out.println( geListStr(digitList) );
+			}
+			
+			
+			LinkedListNode digitList0 = makeDigitList( numbers[0] );
+			LinkedListNode digitList1 = makeDigitList( numbers[1] );
+			
+			LinkedListNode digitList_sum = SumLists_01_boomerang.add(digitList0, digitList1);
+			out.println( geListStr(digitList_sum) );
+		
+		}
 		
 	}
 	

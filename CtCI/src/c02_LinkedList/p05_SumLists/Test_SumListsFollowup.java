@@ -11,19 +11,47 @@ public class Test_SumListsFollowup {
 	
 	public static void main(String[] args) {
 		
-		int[] numbers = {45, 987};
+		int[][] arrayOfNumbers = { 
+			{45, 987},
+			{9999, 1}};
 		
-		for(  int number: numbers) {
-			LinkedListNode digitList = makeDigitList( number );
-			out.println( geListStr(digitList) );
+		
+		for( int[] numbers : arrayOfNumbers ) {
+		
+			out.println("\n++++SumListsFollowup_01_boomerang++++");
+			
+			for(  int number: numbers) {
+				LinkedListNode digitList = makeDigitList( number );
+				out.println( geListStr(digitList) );
+			}
+			
+			
+			LinkedListNode digitList0 = makeDigitList( numbers[0] );
+			LinkedListNode digitList1 = makeDigitList( numbers[1] );
+			
+			LinkedListNode digitList_sum = SumLists_01_boomerang.add(digitList0, digitList1);
+			out.println( geListStr(digitList_sum) );
+		
 		}
 		
 		
-		LinkedListNode digitList0 = makeDigitList( numbers[0] );
-		LinkedListNode digitList1 = makeDigitList( numbers[1] );
+		for( int[] numbers : arrayOfNumbers ) {
+			
+			out.println("\n++++SumListsFollowup_02_globalPackage++++");
+			
+			for(  int number: numbers) {
+				LinkedListNode digitList = makeDigitList( number );
+				out.println( geListStr(digitList) );
+			}
+			
+			
+			LinkedListNode digitList0 = makeDigitList( numbers[0] );
+			LinkedListNode digitList1 = makeDigitList( numbers[1] );
+			
+			LinkedListNode digitList_sum = SumListsFollowup_02_globalPackage.add(digitList0, digitList1);
+			out.println( geListStr(digitList_sum) );
 		
-		LinkedListNode digitList_sum = SumListsFollowup_01_boomerang.add(digitList0, digitList1);
-		out.println( geListStr(digitList_sum) );
+		}
 			
 		
 	}
