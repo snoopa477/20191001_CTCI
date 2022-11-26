@@ -45,4 +45,12 @@ public class LinkedListNode {
 		return head2;
 	}
 
+	@Override
+	public String toString() {
+		//return "LinkedListNode [next=" + next + ", prev=" + prev + ", last=" + last + ", data=" + data + "]";
+		return "LinkedListNode [ data=" + data + "]";
+	}
+	
+	
+
 }
