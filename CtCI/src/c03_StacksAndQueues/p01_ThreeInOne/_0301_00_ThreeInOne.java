@@ -24,10 +24,10 @@ public class _0301_00_ThreeInOne {
 
 
 
-/* Increment stack pointer and then update top value. */ 
-sizes[stackNum]++; 
-values[indexOfTop(stackNum)] = value; 
-}
+		/* Increment stack pointer and then update top value. */ 
+		sizes[stackNum]++; 
+		values[indexOfTop(stackNum)] = value; 
+	}
 
 	/* Pop item from top stack. */
 	public int pop(int stackNum) {
