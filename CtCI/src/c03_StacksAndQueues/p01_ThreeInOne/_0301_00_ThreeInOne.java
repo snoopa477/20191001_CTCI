@@ -19,7 +19,7 @@ public class _0301_00_ThreeInOne {
 	/* Push value onto stack. */
 	public void push(int stackNum, int value) throws FullStackException { 
 		 /* Check that we have space for the next element */ 
-		 if (isFull(stackNum) { 
+		 if (isFull(stackNum)) { 
 		 throw new FullStackException(); } 
 
 
