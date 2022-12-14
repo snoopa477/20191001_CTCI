@@ -98,6 +98,7 @@ public class _0303_00_StackOfPlates {
 		
 		
 		public int pop() { 
+			//WRONG I think there's missing operation here, without this, it would cause wrong
 			Node t = top; 
 			top = top.below; 
 			size--; 
