@@ -60,7 +60,7 @@ public class MutiInOne_Dynamic {
 		//reaching here meaning there must have enough space for pushing
 		int origin = stackNo_to_origin[ stackNo ];
 		int sizeVector = stackNo_to_sizeVector[ stackNo ];
-		values[ origin + sizeVector ] = key;
+		values[ circlizeIndex(origin + sizeVector) ] = key;
 		stackNo_to_sizeVector[ stackNo ]++;
 		
 	}
@@ -250,8 +250,20 @@ public class MutiInOne_Dynamic {
 	
 	
 	
+	/*DETAIL: dealing negative number carefully:
+	 * e.g. 
+	 * -13 % 7 => -6
+	 * however, we'd like positive result, so here's the modification
+	 * (-13 %7 + 7) %7 = 1 
+	 */
 	private int preivousIndex(int index ) {
 		return ( ( index - 1) % values.length + values.length) % values.length;
+	}
+	
+	
+	
+	private int circlizeIndex( int index ) {
+		return ( ( index ) % values.length + values.length) % values.length;
 	}
 	
 	
