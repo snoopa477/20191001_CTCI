@@ -33,7 +33,7 @@ public class BitPrinter {
 		StringJoiner sj = new StringJoiner(" ");
 		for( int i = INTEGER_LENGTH -1; i >= 0; i-- ) {
 			
-			//WRONG if there's leading zero, see above example
+			//WRONG if there's leading one, see above example
 			//WRONG example result : -1 =>  -1 -1 -1 -1
 			//sj.add( String.valueOf( (number >> i)% 2 ) );
 			
