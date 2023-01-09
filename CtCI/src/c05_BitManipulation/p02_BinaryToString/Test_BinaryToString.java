@@ -14,10 +14,15 @@ public class Test_BinaryToString {
 		}
 		
 		
-		
 		out.println("\nBinaryToString_01_ShiftToOne");
 		for( double number: numbers ) {
 			out.printf("%f, %s\n", number, BinaryToString_01_ShiftToOne.toString(number));
+		}
+		
+		
+		out.println("\nBinaryToString_02_MovingComparator");
+		for( double number: numbers ) {
+			out.printf("%f, %s\n", number, BinaryToString_02_MovingComparator.toString(number));
 		}
 		
 	}
