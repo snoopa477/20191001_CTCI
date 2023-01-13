@@ -4,7 +4,7 @@ import static java.lang.System.out;
 
 public class _0504_00_NextNumber {
 	int getNext(int n) {
-		/* compute e0 and e/ */
+		/* compute c0 and c1 */
 		int c = n;
 		int c0 = 0;
 		int c1 = 0;
