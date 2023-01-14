@@ -29,7 +29,8 @@ public class NextNumber_01 {
 		 * 
 		 */
 		
-		/* special case 1: 
+		/* special cases that we don't handle
+		 * special case 1: 
 		 * 1  1  1  1  1  0  0  0  0  0  0  0  0  0
 		 * 
 		 * special case 2: 
@@ -48,13 +49,17 @@ public class NextNumber_01 {
 		while( tempNumber > 0 
 			&& ( tempNumber & ONE ) == ZERO ) {
 			countsOf0 ++ ;
-			tempNumber >>>= 1;
+			//DETAIL: since we only handle number > 0, no leading bit 1, >>> is not required
+			//tempNumber >>>= 1;
+			tempNumber >>= 1;
 		}
 		
 		
 		while( ( tempNumber & ONE ) == ONE  ) {
 			countsOf1 ++ ;
-			tempNumber >>>= 1;
+			//DETAIL: since we only handle number > 0, no leading bit 1, >>> is not required
+			//tempNumber >>>= 1;
+			tempNumber >>= 1;
 		}
 		
 		if(IS_DEBUG) {
@@ -101,14 +106,14 @@ public class NextNumber_01 {
 		
 		/**
 		 * 1  1  0  1  1  0 [0]<1  1  1  1  1>{0  0}
-		 * 0  0  0  0  0  0  1  0  0  0  0  0  0  0 -  1 << (countsOf1 + countsOf0)
-		 * 0  0  0  0  0  0  0  1  1  1  1  1  1  1 -  
+		 * 0  0  0  0  0  0  1  0  0  0  0  0  0  0 :  1 << (countsOf1 + countsOf0)
+		 * 0  0  0  0  0  0  0  1  1  1  1  1  1  1 :  
 		 * 1  1  1  1  1  1  1  0  0  0  0  0  0  0
 		 * 
 		 * or
-		 * 0  0  0  0  0  0  0  0  0  0  0  0  0  0 - 0
-		 * 1  1  1  1  1  1  1  1  1  1  1  1  1  1 - ~0
-		 * 1  1  1  1  1  1  1  0  0  0  0  0  0  0 - (~0) << ( countsOf1 + countsOf0 )
+		 * 0  0  0  0  0  0  0  0  0  0  0  0  0  0 : 0
+		 * 1  1  1  1  1  1  1  1  1  1  1  1  1  1 : ~0
+		 * 1  1  1  1  1  1  1  0  0  0  0  0  0  0 : (~0) << ( countsOf1 + countsOf0 )
 		 */
 		
 		return (~0) << ( countsOf1 + countsOf0 );
@@ -123,8 +128,8 @@ public class NextNumber_01 {
 		 * another ( countsOf1 - 1 ) bits to rightmost  
 		 * 
 		 * 1  1  0  1  1  0 [0]<1  1  1  1  1>{0  0}
-		 * 0  0  0  0  0  0  0  0  0  1  0  0  0  0 - 1 << ( countsOf1 -1 )
-		 * 0  0  0  0  0  0  0  0  0  0  1  1  1  1 - ( 1 << ( countsOf1 -1 ) ) -1
+		 * 0  0  0  0  0  0  0  0  0  1  0  0  0  0 : 1 << ( countsOf1 -1 )
+		 * 0  0  0  0  0  0  0  0  0  0  1  1  1  1 : ( 1 << ( countsOf1 -1 ) ) -1
 		 */
 		
 		return ( 1 << ( countsOf1 -1 ) ) -1;
